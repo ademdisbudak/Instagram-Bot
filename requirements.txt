@@ -3,3 +3,4 @@ pygame==2.5.0
 selenium==4.11.2
 charset-normalizer==3.2.0
 requests==2.31.0
+ttkthemes==3.2.2
