@@ -126,8 +126,8 @@ class AutoFollowWindow:
 
         option = webdriver.FirefoxOptions()
 
-        option.add_argument("-profile")
-        option.add_argument(paths.firefox_proile_path) 
+        # option.add_argument("-profile")
+        # option.add_argument(paths.firefox_proile_path) 
         option.set_preference("network.proxy.type", 1)
         option.set_preference("network.proxy.http", PROXY_HOST)
         option.set_preference("network.proxy.http_port", PROXY_PORT)
