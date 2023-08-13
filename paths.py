@@ -30,33 +30,33 @@ accounts_informations_css_selector = "section.x1qjc9v5"                         
 unfollow_button_second_stage_css_selector = "button._a9--:nth-child(2)"                                                                                                                 # unfollow_bot.py
 
 # Txt's
-proxy_list_txt_path = "E:/Python/instagram_automation/proxy/proxy_list.txt"
+proxy_list_txt_path = "./proxy/proxy_list.txt"
 
 # File's
-main_py_path = "E:/Python/instagram_automation/main.py" 
+main_py_path = "./main.py" 
 
 # Database
-login_db_path = "E:/Python/instagram_automation/database/login.db" 
-account_informations_db_path = "E:/Python/instagram_automation/database/account_informations.db"
-auto_follow_db_path = "E:/Python/instagram_automation/database/auto_follow.db" 
-auto_unfollow_db_path = "E:/Python/instagram_automation/database/auto_unfollow.db"
+login_db_path = "./database/login.db" 
+account_informations_db_path = "./database/account_informations.db"
+auto_follow_db_path = "./database/auto_follow.db" 
+auto_unfollow_db_path = "./database/auto_unfollow.db"
 
 # Photo
-logo_png_path = "E:/Python/instagram_automation/assets/photo/logo.png" 
-profile_photo_png_path = "E:/Python/instagram_automation/assets/photo/profile_photo.png"
-play_png_path = "E:/Python/instagram_automation/assets/photo/play.png"
-pause_png_path = "E:/Python/instagram_automation/assets/photo/pause.png"
-auto_unfollow_png_path = "E:/Python/instagram_automation/assets/photo/auto_unfollow.png"
+logo_png_path = "./assets/photo/logo.png" 
+profile_photo_png_path = "./assets/photo/profile_photo.png"
+play_png_path = "./assets/photo/play.png"
+pause_png_path = "./assets/photo/pause.png"
+auto_unfollow_png_path = "./assets/photo/auto_unfollow.png"
 
 # Music's
-background_music_mp3_path = "E:/Python/instagram_automation/assets/music/background_music.mp3" 
+background_music_mp3_path = "./assets/music/background_music.mp3" 
 
 # Firefox Profile
 firefox_proile_path = r"C:/Users/adems/AppData/Roaming/Mozilla/Firefox/Profiles/aom2axov.default-release"
 
 # Cookies
-cookies_pkl_path = "E:/Python/instagram_automation/cookies/cookies.pkl" 
-cookies_pilot_account_path =  "E:/Python/instagram_automation/cookies/cookies_pilot_account.pkl"
+cookies_pkl_path = "./cookies/cookies.pkl" 
+cookies_pilot_account_path =  "./cookies/cookies_pilot_account.pkl"
 
 
 
