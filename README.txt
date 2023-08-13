@@ -1,0 +1,1 @@
+Gerekli kütüphanaleri nasıl yükleyeceğim?: pip install -r requirements.txt
