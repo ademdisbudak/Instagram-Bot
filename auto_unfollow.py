@@ -1,7 +1,7 @@
 import tkinter as tk
 from tkinter import scrolledtext
 from PIL import Image,ImageTk
-from auto_unfollow_sel import lists_and_counts,unfollow_bot
+from auto_unfollow_selenium import lists_and_counts,unfollow_bot
 import paths,threading
 
 class AutoUnfollowWindow:

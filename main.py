@@ -1,5 +1,5 @@
 import tkinter as tk
-import auto_follow,accounts_informations,threading,auto_unfollow,sqlite3,paths
+import auto_follow,accounts_informations,threading,sqlite3,paths,auto_unfollow
 
 class MainWindow:
     

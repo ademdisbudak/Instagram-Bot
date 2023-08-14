@@ -11,17 +11,6 @@ class LoginWindow:
 
     def __init__(self):
         self.login_window = tk.Tk()
-    
-        self.account_database_username = ""
-        self.account_database_password = ""
-
-        self.login_success_statu = False
-        self.t1 = None
-        self.logo_img = None
-        self.playing = False
-
-        mixer.init()
-        mixer.music.load(paths.background_music_mp3_path)
 
     def configure_properties(self):
         
@@ -81,19 +70,18 @@ class LoginWindow:
         # endregion
 
         # region Login Button
-        login_button = tk.Button(self.account_login_page,text="Login",command=self.startLoginButton,background="darkorange2",foreground="white",width=30)
+        login_button = tk.Button(self.account_login_page,text="Login",command=self.start_login_button,background="darkorange2",foreground="white",width=30)
         login_button.grid(row=5,column=0,padx=10,pady=(10,25),columnspan=2)
         # endregion 
 
-
     # region Username Check
     def alert_for_username(self,*args):
-        self.username_warning_label.grid(row=3,column=0,columnspan=2)
         username = self.login_username_entry.get()
         is_valid = self.check_username_entry_rules(username)
         if is_valid or len(username) == 0:
-            self.username_warning_label.config(text="")
+            self.username_warning_label.grid_forget()
         else:
+            self.username_warning_label.grid(row=3,column=0,columnspan=2)
             self.username_warning_label.config(text="The user name cannot be less than 4 characters and \n cannot contain prohibited letters.")
           
     def check_username_entry_rules(self,username):
@@ -104,7 +92,7 @@ class LoginWindow:
     # endregion
 
     # region Login Button Works
-    def saveToDatabase(self):   
+    def save_to_database(self):   
         username = self.login_username_entry.get() 
         password = self.login_password_entry.get() 
         conn = sqlite3.connect(paths.login_db_path)
@@ -120,7 +108,7 @@ class LoginWindow:
             cursor.close()
             conn.close()
 
-    def readToDatabase(self):
+    def read_to_database(self):
         conn = sqlite3.connect(paths.login_db_path)
         cursor = conn.cursor() 
         try:
@@ -136,7 +124,7 @@ class LoginWindow:
             cursor.close()
             conn.close()
 
-    def clickLogin(self):
+    def click_login(self):
         try:
             self.browser = webdriver.Firefox()
             self.browser.get("https://www.instagram.com/")
@@ -150,11 +138,11 @@ class LoginWindow:
 
             login = self.browser.find_element(By.XPATH,"//button[@type='submit']")
             login.click()
-            print("Login tuşuna basıldı, 5 saniye bekleniyor.")
+            print("Loginning..")
             time.sleep(5)
 
         except Exception as e:
-            print(e,"Accounts_Data'dan verileri alıp işlerken bir sorun oluştu!")
+            print(e,"click_login")
 
     def determineCookieStatu(self):
         try:
@@ -171,14 +159,14 @@ class LoginWindow:
             self.browser.quit()
             print("Browser has been closed.")
             
-    def startLoginButton(self):
-        self.t1 = threading.Thread(target=self.runLoginButton)
+    def start_login_button(self):
+        self.t1 = threading.Thread(target=self.run_login_button)
         self.t1.start()
     
-    def runLoginButton(self):
-        t1 = threading.Thread(target=self.saveToDatabase)
-        t2 = threading.Thread(target=self.readToDatabase)
-        t3 = threading.Thread(target=self.clickLogin)
+    def run_login_button(self):
+        t1 = threading.Thread(target=self.save_to_database)
+        t2 = threading.Thread(target=self.read_to_database)
+        t3 = threading.Thread(target=self.click_login)
 
         t1.start()
         t1.join()
@@ -222,29 +210,3 @@ class LoginWindow:
 
 if __name__ == "__main__":
     LoginWindow().run_login_window()
-
-
-
-# region Deleted Functions
-        # def create_music_button(self,play_or_pause,row,column,padx,pady,img):
-        #     if play_or_pause == "play":
-        #         def play_or_pause_music():
-        #             if not self.playing:
-        #                 mixer.music.play()
-        #                 self.playing = True
-        #     else:
-        #         def play_or_pause_music():
-        #             if self.playing:
-        #                 mixer.music.stop()
-        #                 self.playing = False
-                    
-        #     button_canvas = tk.Canvas(self.account_login_page,width=50,height=50,bg="white",highlightthickness=0)
-        #     button_canvas.grid(row=row,column=column,padx=padx,pady=pady)
-
-        #     button_img = Image.open(img).resize((40,40))
-        #     button_img = ImageTk.PhotoImage(button_img)
-
-        #     button = tk.Button(button_canvas,image=button_img,command=play_or_pause_music,bd=0,highlightthickness=0,relief="flat",bg="white",highlightbackground="white")
-        #     button.image = button_img
-        #     button.grid(row=row,column=column,padx=padx,pady=pady,sticky="nsew")
-# endregion

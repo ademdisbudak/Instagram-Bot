@@ -1,0 +1,227 @@
+1692002615419	geckodriver	INFO	Listening on 127.0.0.1:50289
+1692002618478	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "--remote-debugging-port" "50290" "--remote-allow-hosts" "localhost" "-no-remote" "-profile" "C:\\Users\\adems\\AppData\\Local\\Temp\\rust_mozprofileTeAHes"
+console.warn: services.settings: Ignoring preference override of remote settings server
+console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
+1692002618723	Marionette	INFO	Marionette enabled
+Dynamically enable window occlusion 0
+1692002618826	Marionette	INFO	Listening on port 50298
+WebDriver BiDi listening on ws://127.0.0.1:50290
+Read port: 50298
+1692002619013	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+DevTools listening on ws://127.0.0.1:50290/devtools/browser/ad2ef74b-dc50-4ba8-a82a-303164e79b6a
+JavaScript warning: https://static.cdninstagram.com/rsrc.php/v3ikWC4/yi/l/tr_TR/wW-HiOyx6ng.js?_nc_x=Ij3Wp8lg5Kz, line 1751: unreachable code after return statement
+JavaScript warning: https://static.cdninstagram.com/rsrc.php/v3ikWC4/yi/l/tr_TR/wW-HiOyx6ng.js?_nc_x=Ij3Wp8lg5Kz, line 1754: unreachable code after return statement
+JavaScript warning: https://static.cdninstagram.com/rsrc.php/v3iBLz4/y_/l/tr_TR/omnPcEOTk0B.js?_nc_x=Ij3Wp8lg5Kz, line 137: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+console.warn: LoginRecipes: "Falling back to a synchronous message for: https://www.instagram.com."
+[Parent 19408, IPC I/O Parent] WARNING: DuplicateHandle failed for handle 0 in TransferHandles: file /builds/worker/checkouts/gecko/ipc/chromium/src/chrome/common/ipc_channel_win.cc:621
+[GPU 24532, IPC I/O Child] WARNING: pipe error: 232: file /builds/worker/checkouts/gecko/ipc/chromium/src/chrome/common/ipc_channel_win.cc:443
+JavaScript warning: https://static.cdninstagram.com/rsrc.php/v3iNkZ4/y8/l/makehaste_jhash/wW-HiOyx6ng.js?_nc_x=Ij3Wp8lg5Kz, line 1751: unreachable code after return statement
+JavaScript warning: https://static.cdninstagram.com/rsrc.php/v3iNkZ4/y8/l/makehaste_jhash/wW-HiOyx6ng.js?_nc_x=Ij3Wp8lg5Kz, line 1754: unreachable code after return statement
+JavaScript warning: https://static.cdninstagram.com/rsrc.php/v3ieCg4/yp/l/makehaste_jhash/omnPcEOTk0B.js?_nc_x=Ij3Wp8lg5Kz, line 137: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+console.warn: LoginRecipes: "Falling back to a synchronous message for: https://www.instagram.com."
+1692002639336	Marionette	INFO	Stopped listening on port 50298
+JavaScript warning: https://static.cdninstagram.com/rsrc.php/v3/y6/r/gUEU-Znmv7R.js?_nc_x=Ij3Wp8lg5Kz, line 59: Script terminated by timeout at:
+c@https://static.cdninstagram.com/rsrc.php/v3/y6/r/gUEU-Znmv7R.js?_nc_x=Ij3Wp8lg5Kz:59:11082
+
+JavaScript warning: https://static.xx.fbcdn.net/rsrc.php/v3/y6/r/gUEU-Znmv7R.js?_nc_x=Ij3Wp8lg5Kz, line 223: Script terminated by timeout at:
+g.unstable_now@https://static.xx.fbcdn.net/rsrc.php/v3/y6/r/gUEU-Znmv7R.js?_nc_x=Ij3Wp8lg5Kz:223:1304
+Y/P<@https://static.xx.fbcdn.net/rsrc.php/v3/y6/r/gUEU-Znmv7R.js?_nc_x=Ij3Wp8lg5Kz:223:3452
+
+Dynamically enable window occlusion 1
+[Parent 19408, IPC I/O Parent] WARNING: DuplicateHandle failed for handle 0 in TransferHandles: file /builds/worker/checkouts/gecko/ipc/chromium/src/chrome/common/ipc_channel_win.cc:621
+[GPU 24532, IPC I/O Child] WARNING: pipe error: 232: file /builds/worker/checkouts/gecko/ipc/chromium/src/chrome/common/ipc_channel_win.cc:443
+[Parent 19408, IPC I/O Parent] WARNING: DuplicateHandle failed for handle 0 in TransferHandles: file /builds/worker/checkouts/gecko/ipc/chromium/src/chrome/common/ipc_channel_win.cc:621
+[GPU 24532, IPC I/O Child] WARNING: pipe error: 232: file /builds/worker/checkouts/gecko/ipc/chromium/src/chrome/common/ipc_channel_win.cc:443
+[Parent 19408, IPC I/O Parent] WARNING: DuplicateHandle failed for handle 0 in TransferHandles: file /builds/worker/checkouts/gecko/ipc/chromium/src/chrome/common/ipc_channel_win.cc:621
+[GPU 24532, IPC I/O Child] WARNING: pipe error: 232: file /builds/worker/checkouts/gecko/ipc/chromium/src/chrome/common/ipc_channel_win.cc:443
+[Parent 19408, IPC I/O Parent] WARNING: DuplicateHandle failed for handle 0 in TransferHandles: file /builds/worker/checkouts/gecko/ipc/chromium/src/chrome/common/ipc_channel_win.cc:621
+[GPU 24532, IPC I/O Child] WARNING: pipe error: 232: file /builds/worker/checkouts/gecko/ipc/chromium/src/chrome/common/ipc_channel_win.cc:443
+[Parent 19408, IPC I/O Parent] WARNING: DuplicateHandle failed for handle 0 in TransferHandles: file /builds/worker/checkouts/gecko/ipc/chromium/src/chrome/common/ipc_channel_win.cc:621
+[GPU 24532, IPC I/O Child] WARNING: pipe error: 232: file /builds/worker/checkouts/gecko/ipc/chromium/src/chrome/common/ipc_channel_win.cc:443
+[Parent 19408, IPC I/O Parent] WARNING: DuplicateHandle failed for handle 0 in TransferHandles: file /builds/worker/checkouts/gecko/ipc/chromium/src/chrome/common/ipc_channel_win.cc:621
+[GPU 24532, IPC I/O Child] WARNING: pipe error: 232: file /builds/worker/checkouts/gecko/ipc/chromium/src/chrome/common/ipc_channel_win.cc:443
+1692002737400	geckodriver	INFO	Listening on 127.0.0.1:50395
+1692002740439	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "--remote-debugging-port" "50396" "--remote-allow-hosts" "localhost" "-no-remote" "-profile" "C:\\Users\\adems\\AppData\\Local\\Temp\\rust_mozprofileqLhEzc"
+console.warn: services.settings: Ignoring preference override of remote settings server
+console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
+1692002740643	Marionette	INFO	Marionette enabled
+Dynamically enable window occlusion 0
+1692002740710	Marionette	INFO	Listening on port 50403
+WebDriver BiDi listening on ws://127.0.0.1:50396
+Read port: 50403
+1692002740853	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+DevTools listening on ws://127.0.0.1:50396/devtools/browser/1d2471ea-697d-49b7-a562-c778308a18fe
+JavaScript warning: https://static.cdninstagram.com/rsrc.php/v3ikWC4/yi/l/tr_TR/wW-HiOyx6ng.js?_nc_x=Ij3Wp8lg5Kz, line 1751: unreachable code after return statement
+JavaScript warning: https://static.cdninstagram.com/rsrc.php/v3ikWC4/yi/l/tr_TR/wW-HiOyx6ng.js?_nc_x=Ij3Wp8lg5Kz, line 1754: unreachable code after return statement
+JavaScript warning: https://static.cdninstagram.com/rsrc.php/v3iBLz4/y_/l/tr_TR/omnPcEOTk0B.js?_nc_x=Ij3Wp8lg5Kz, line 137: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+console.warn: LoginRecipes: "Falling back to a synchronous message for: https://www.instagram.com."
+JavaScript warning: https://static.cdninstagram.com/rsrc.php/v3iNkZ4/y8/l/makehaste_jhash/wW-HiOyx6ng.js?_nc_x=Ij3Wp8lg5Kz, line 1751: unreachable code after return statement
+JavaScript warning: https://static.cdninstagram.com/rsrc.php/v3iNkZ4/y8/l/makehaste_jhash/wW-HiOyx6ng.js?_nc_x=Ij3Wp8lg5Kz, line 1754: unreachable code after return statement
+[Parent 17424, IPC I/O Parent] WARNING: DuplicateHandle failed for handle 0 in TransferHandles: file /builds/worker/checkouts/gecko/ipc/chromium/src/chrome/common/ipc_channel_win.cc:621
+[GPU 19192, IPC I/O Child] WARNING: pipe error: 232: file /builds/worker/checkouts/gecko/ipc/chromium/src/chrome/common/ipc_channel_win.cc:443
+console.warn: LoginRecipes: "Falling back to a synchronous message for: https://www.instagram.com."
+JavaScript warning: https://static.cdninstagram.com/rsrc.php/v3ieCg4/yp/l/makehaste_jhash/omnPcEOTk0B.js?_nc_x=Ij3Wp8lg5Kz, line 137: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+1692002760530	Marionette	INFO	Stopped listening on port 50403
+JavaScript warning: https://static.cdninstagram.com/rsrc.php/v3iP3R4/yH/l/makehaste_jhash/1jHSNR-tno5r2p7esd700UamXpE8oJ8Rc4CrT-LOd0sa3qd3_bDos5JLRucVY1B-FLIyWjY0leU0apkACKkwp_j1bQvNc-jWcPD9VmJqKWOpb4ksCs8--wZX8zQ-9h36-TbwRSzLLoKSgQ9E6eCs0zFrcp2jwrz84Sny4VfnRSis0gotkU-e87hSDJFMO_OlI0kz9nEQwYJ_qwKdJJEoEECbDP0_vsWqehdEtWwFmhkPIS8lOuDQVEH-g-FDC.js?_nc_x=Ij3Wp8lg5Kz, line 159: Script terminated by timeout at:
+j/o/D</c.send@https://static.cdninstagram.com/rsrc.php/v3iP3R4/yH/l/makehaste_jhash/1jHSNR-tno5r2p7esd700UamXpE8oJ8Rc4CrT-LOd0sa3qd3_bDos5JLRucVY1B-FLIyWjY0leU0apkACKkwp_j1bQvNc-jWcPD9VmJqKWOpb4ksCs8--wZX8zQ-9h36-TbwRSzLLoKSgQ9E6eCs0zFrcp2jwrz84Sny4VfnRSis0gotkU-e87hSDJFMO_OlI0kz9nEQwYJ_qwKdJJEoEECbDP0_vsWqehdEtWwFmhkPIS8lOuDQVEH-g-FDC.js?_nc_x=Ij3Wp8lg5Kz:159:1357
+o@https://static.cdninstagram.com/rsrc.php/v3iP3R4/yH/l/makehaste_jhash/1jHSNR-tno5r2p7esd700UamXpE8oJ8Rc4CrT-LOd0sa3qd3_bDos5JLRucVY1B-FLIyWjY0leU0apkACKkwp_j1bQvNc-jWcPD9VmJqKWOpb4ksCs8--wZX8zQ-9h36-TbwRSzLLoKSgQ9E6eCs0zFrcp2jwrz84Sny4VfnRSis0gotkU-e87hSDJFMO_OlI0kz9nEQwYJ_qwKdJJEoEECbDP0_vsWqehdEtWwFmhkPIS8lOuDQVEH-g-FDC.js?_nc_x=Ij3Wp8lg5Kz:159:4337
+j/p/i.exports</g/<@https://static.cdninstagram.com/rsrc.php/v3iP3R4/yH/l/makehaste_jhash/1jHSNR-tno5r2p7esd700UamXpE8oJ8Rc4CrT-LOd0sa3qd3_bDos5JLRucVY1B-FLIyWjY0leU0apkACKkwp_j1bQvNc-jWcPD9VmJqKWOpb4ksCs8--wZX8zQ-9h36-TbwRSzLLoKSgQ9E6eCs0zFrcp2jwrz84Sny4VfnRSis0gotkU-e87hSDJFMO_OlI0kz9nEQwYJ_qwKdJJEoEECbDP0_vsWqehdEtWwFmhkPIS8lOuDQVEH-g-FDC.js?_nc_x=Ij3Wp8lg5Kz:159:4476
+j/p/i.exports</c.map@https://static.cdninstagram.com/rsrc.php/v3iP3R4/yH/l/makehaste_jhash/1jHSNR-tno5r2p7esd700UamXpE8oJ8Rc4CrT-LOd0sa3qd3_bDos5JLRucVY1B-FLIyWjY0leU0apkACKkwp_j1bQvNc-jWcPD9VmJqKWOpb4ksCs8--wZX8zQ-9h36-TbwRSzLLoKSgQ9E6eCs0zFrcp2jwrz84Sny4VfnRSis0gotkU-e87hSDJFMO_OlI0kz9nEQwYJ_qwKdJJEoEECbDP0_vsWqehdEtWwFmhkPIS8lOuDQVEH-g-FDC.js?_nc_x=Ij3Wp8lg5Kz:159:4838
+map@https://static.cdninstagram.com/rsrc.php/v3iP3R4/yH/l/makehaste_jhash/1jHSNR-tno5r2p7esd700UamXpE8oJ8Rc4CrT-LOd0sa3qd3_bDos5JLRucVY1B-FLIyWjY0leU0apkACKkwp_j1bQvNc-jWcPD9VmJqKWOpb4ksCs8--wZX8zQ-9h36-TbwRSzLLoKSgQ9E6eCs0zFrcp2jwrz84Sny4VfnRSis0gotkU-e87hSDJFMO_OlI0kz9nEQwYJ_qwKdJJEoEECbDP0_vsWqehdEtWwFmhkPIS8lOuDQVEH-g-FDC.js?_nc_x=Ij3Wp8lg5Kz:159:5320
+v@https://static.cdninstagram.com/rsrc.php/v3iNkZ4/y8/l/makehaste_jhash/wW-HiOyx6ng.js?_nc_x=Ij3Wp8lg5Kz:906:3650
+u@https://static.cdninstagram.com/rsrc.php/v3iNkZ4/y8/l/makehaste_jhash/wW-HiOyx6ng.js?_nc_x=Ij3Wp8lg5Kz:906:5196
+q@https://static.cdninstagram.com/rsrc.php/v3iNkZ4/y8/l/makehaste_jhash/wW-HiOyx6ng.js?_nc_x=Ij3Wp8lg5Kz:906:3703
+e@https://static.cdninstagram.com/rsrc.php/v3iNkZ4/y8/l/makehaste_jhash/wW-HiOyx6ng.js?_nc_x=Ij3Wp8lg5Kz:906:5455
+a@https://static.cdninstagram.com/rsrc.php/v3iNkZ4/y8/l/makehaste_jhash/wW-HiOyx6ng.js?_nc_x=Ij3Wp8lg5Kz:935:497
+send@https://static.cdninstagram.com/rsrc.php/v3iNkZ4/y8/l/makehaste_jhash/wW-HiOyx6ng.js?_nc_x=Ij3Wp8lg5Kz:896:1752
+A@https://static.cdninstagram.com/rsrc.php/v3iNkZ4/y8/l/makehaste_jhash/wW-HiOyx6ng.js?_nc_x=Ij3Wp8lg5Kz:888:1402
+z<@https://static.cdninstagram.com/rsrc.php/v3iNkZ4/y8/l/makehaste_jhash/wW-HiOyx6ng.js?_nc_x=Ij3Wp8lg5Kz:888:971
+e/k<@https://static.cdninstagram.com/rsrc.php/v3/y6/r/gUEU-Znmv7R.js?_nc_x=Ij3Wp8lg5Kz:234:933
+applyWithGuard@https://static.cdninstagram.com/rsrc.php/v3/y6/r/gUEU-Znmv7R.js?_nc_x=Ij3Wp8lg5Kz:59:10432
+c@https://static.cdninstagram.com/rsrc.php/v3/y6/r/gUEU-Znmv7R.js?_nc_x=Ij3Wp8lg5Kz:59:11166
+N@https://static.cdninstagram.com/rsrc.php/v3/y6/r/gUEU-Znmv7R.js?_nc_x=Ij3Wp8lg5Kz:223:2343
+U@https://static.cdninstagram.com/rsrc.php/v3/y6/r/gUEU-Znmv7R.js?_nc_x=Ij3Wp8lg5Kz:223:3045
+
+Dynamically enable window occlusion 1
+[Parent 17424, IPC I/O Parent] WARNING: DuplicateHandle failed for handle 0 in TransferHandles: file /builds/worker/checkouts/gecko/ipc/chromium/src/chrome/common/ipc_channel_win.cc:621
+[GPU 19192, IPC I/O Child] WARNING: pipe error: 232: file /builds/worker/checkouts/gecko/ipc/chromium/src/chrome/common/ipc_channel_win.cc:443
+[Parent 17424, IPC I/O Parent] WARNING: DuplicateHandle failed for handle 0 in TransferHandles: file /builds/worker/checkouts/gecko/ipc/chromium/src/chrome/common/ipc_channel_win.cc:621
+[GPU 19192, IPC I/O Child] WARNING: pipe error: 232: file /builds/worker/checkouts/gecko/ipc/chromium/src/chrome/common/ipc_channel_win.cc:443
+[Parent 17424, IPC I/O Parent] WARNING: DuplicateHandle failed for handle 0 in TransferHandles: file /builds/worker/checkouts/gecko/ipc/chromium/src/chrome/common/ipc_channel_win.cc:621
+[GPU 19192, IPC I/O Child] WARNING: pipe error: 232: file /builds/worker/checkouts/gecko/ipc/chromium/src/chrome/common/ipc_channel_win.cc:443
+[Parent 17424, IPC I/O Parent] WARNING: DuplicateHandle failed for handle 0 in TransferHandles: file /builds/worker/checkouts/gecko/ipc/chromium/src/chrome/common/ipc_channel_win.cc:621
+[GPU 19192, IPC I/O Child] WARNING: pipe error: 232: file /builds/worker/checkouts/gecko/ipc/chromium/src/chrome/common/ipc_channel_win.cc:443
+[Parent 17424, IPC I/O Parent] WARNING: DuplicateHandle failed for handle 0 in TransferHandles: file /builds/worker/checkouts/gecko/ipc/chromium/src/chrome/common/ipc_channel_win.cc:621
+[GPU 19192, IPC I/O Child] WARNING: pipe error: 232: file /builds/worker/checkouts/gecko/ipc/chromium/src/chrome/common/ipc_channel_win.cc:443
+[Parent 17424, IPC I/O Parent] WARNING: DuplicateHandle failed for handle 0 in TransferHandles: file /builds/worker/checkouts/gecko/ipc/chromium/src/chrome/common/ipc_channel_win.cc:621
+[GPU 19192, IPC I/O Child] WARNING: pipe error: 232: file /builds/worker/checkouts/gecko/ipc/chromium/src/chrome/common/ipc_channel_win.cc:443
+1692002847522	geckodriver	INFO	Listening on 127.0.0.1:50498
+1692002850566	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "--remote-debugging-port" "50499" "--remote-allow-hosts" "localhost" "-no-remote" "-profile" "C:\\Users\\adems\\AppData\\Local\\Temp\\rust_mozprofile1dT3DN"
+console.warn: services.settings: Ignoring preference override of remote settings server
+console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
+1692002850766	Marionette	INFO	Marionette enabled
+Dynamically enable window occlusion 0
+1692002850833	Marionette	INFO	Listening on port 50506
+WebDriver BiDi listening on ws://127.0.0.1:50499
+Read port: 50506
+1692002850973	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+DevTools listening on ws://127.0.0.1:50499/devtools/browser/0401dc36-7d31-4263-a434-4f57c12327c6
+JavaScript warning: https://static.cdninstagram.com/rsrc.php/v3ikWC4/yi/l/tr_TR/wW-HiOyx6ng.js?_nc_x=Ij3Wp8lg5Kz, line 1751: unreachable code after return statement
+JavaScript warning: https://static.cdninstagram.com/rsrc.php/v3ikWC4/yi/l/tr_TR/wW-HiOyx6ng.js?_nc_x=Ij3Wp8lg5Kz, line 1754: unreachable code after return statement
+JavaScript warning: https://static.cdninstagram.com/rsrc.php/v3iBLz4/y_/l/tr_TR/omnPcEOTk0B.js?_nc_x=Ij3Wp8lg5Kz, line 137: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+console.warn: LoginRecipes: "Falling back to a synchronous message for: https://www.instagram.com."
+console.warn: LoginRecipes: "Falling back to a synchronous message for: https://www.instagram.com."
+[Parent 23228, IPC I/O Parent] WARNING: DuplicateHandle failed for handle 0 in TransferHandles: file /builds/worker/checkouts/gecko/ipc/chromium/src/chrome/common/ipc_channel_win.cc:621
+[GPU 16744, IPC I/O Child] WARNING: pipe error: 232: file /builds/worker/checkouts/gecko/ipc/chromium/src/chrome/common/ipc_channel_win.cc:443
+JavaScript warning: https://static.cdninstagram.com/rsrc.php/v3iNkZ4/y8/l/makehaste_jhash/wW-HiOyx6ng.js?_nc_x=Ij3Wp8lg5Kz, line 1751: unreachable code after return statement
+JavaScript warning: https://static.cdninstagram.com/rsrc.php/v3iNkZ4/y8/l/makehaste_jhash/wW-HiOyx6ng.js?_nc_x=Ij3Wp8lg5Kz, line 1754: unreachable code after return statement
+JavaScript warning: https://static.cdninstagram.com/rsrc.php/v3ieCg4/yp/l/makehaste_jhash/omnPcEOTk0B.js?_nc_x=Ij3Wp8lg5Kz, line 137: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+console.warn: LoginRecipes: "Falling back to a synchronous message for: https://www.instagram.com."
+1692002870608	Marionette	INFO	Stopped listening on port 50506
+JavaScript warning: https://static.cdninstagram.com/rsrc.php/v3/y6/r/gUEU-Znmv7R.js?_nc_x=Ij3Wp8lg5Kz, line 223: Script terminated by timeout at:
+Y/P<@https://static.cdninstagram.com/rsrc.php/v3/y6/r/gUEU-Znmv7R.js?_nc_x=Ij3Wp8lg5Kz:223:3448
+
+Dynamically enable window occlusion 1
+[Parent 23228, IPC I/O Parent] WARNING: DuplicateHandle failed for handle 0 in TransferHandles: file /builds/worker/checkouts/gecko/ipc/chromium/src/chrome/common/ipc_channel_win.cc:621
+[GPU 16744, IPC I/O Child] WARNING: pipe error: 232: file /builds/worker/checkouts/gecko/ipc/chromium/src/chrome/common/ipc_channel_win.cc:443
+[Parent 23228, IPC I/O Parent] WARNING: DuplicateHandle failed for handle 0 in TransferHandles: file /builds/worker/checkouts/gecko/ipc/chromium/src/chrome/common/ipc_channel_win.cc:621
+[GPU 16744, IPC I/O Child] WARNING: pipe error: 232: file /builds/worker/checkouts/gecko/ipc/chromium/src/chrome/common/ipc_channel_win.cc:443
+[Parent 23228, IPC I/O Parent] WARNING: DuplicateHandle failed for handle 0 in TransferHandles: file /builds/worker/checkouts/gecko/ipc/chromium/src/chrome/common/ipc_channel_win.cc:621
+[GPU 16744, IPC I/O Child] WARNING: pipe error: 232: file /builds/worker/checkouts/gecko/ipc/chromium/src/chrome/common/ipc_channel_win.cc:443
+[Parent 23228, IPC I/O Parent] WARNING: DuplicateHandle failed for handle 0 in TransferHandles: file /builds/worker/checkouts/gecko/ipc/chromium/src/chrome/common/ipc_channel_win.cc:621
+[GPU 16744, IPC I/O Child] WARNING: pipe error: 232: file /builds/worker/checkouts/gecko/ipc/chromium/src/chrome/common/ipc_channel_win.cc:443
+[Parent 23228, IPC I/O Parent] WARNING: DuplicateHandle failed for handle 0 in TransferHandles: file /builds/worker/checkouts/gecko/ipc/chromium/src/chrome/common/ipc_channel_win.cc:621
+[GPU 16744, IPC I/O Child] WARNING: pipe error: 232: file /builds/worker/checkouts/gecko/ipc/chromium/src/chrome/common/ipc_channel_win.cc:443
+[Parent 23228, IPC I/O Parent] WARNING: DuplicateHandle failed for handle 0 in TransferHandles: file /builds/worker/checkouts/gecko/ipc/chromium/src/chrome/common/ipc_channel_win.cc:621
+[GPU 16744, IPC I/O Child] WARNING: pipe error: 232: file /builds/worker/checkouts/gecko/ipc/chromium/src/chrome/common/ipc_channel_win.cc:443
+[Parent 23228, IPC I/O Parent] WARNING: DuplicateHandle failed for handle 0 in TransferHandles: file /builds/worker/checkouts/gecko/ipc/chromium/src/chrome/common/ipc_channel_win.cc:621
+[GPU 16744, IPC I/O Child] WARNING: pipe error: 232: file /builds/worker/checkouts/gecko/ipc/chromium/src/chrome/common/ipc_channel_win.cc:443
+1692003091535	geckodriver	INFO	Listening on 127.0.0.1:50588
+1692003094590	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "--remote-debugging-port" "50589" "--remote-allow-hosts" "localhost" "-no-remote" "-profile" "C:\\Users\\adems\\AppData\\Local\\Temp\\rust_mozprofileoQ9gWg"
+console.warn: services.settings: Ignoring preference override of remote settings server
+console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
+1692003094792	Marionette	INFO	Marionette enabled
+Dynamically enable window occlusion 0
+1692003094858	Marionette	INFO	Listening on port 50596
+WebDriver BiDi listening on ws://127.0.0.1:50589
+Read port: 50596
+1692003094998	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+DevTools listening on ws://127.0.0.1:50589/devtools/browser/29412a33-55c6-46db-9a48-5643ed236104
+JavaScript warning: https://static.cdninstagram.com/rsrc.php/v3ikWC4/yi/l/tr_TR/wW-HiOyx6ng.js?_nc_x=Ij3Wp8lg5Kz, line 1751: unreachable code after return statement
+JavaScript warning: https://static.cdninstagram.com/rsrc.php/v3ikWC4/yi/l/tr_TR/wW-HiOyx6ng.js?_nc_x=Ij3Wp8lg5Kz, line 1754: unreachable code after return statement
+JavaScript warning: https://static.cdninstagram.com/rsrc.php/v3iBLz4/y_/l/tr_TR/omnPcEOTk0B.js?_nc_x=Ij3Wp8lg5Kz, line 137: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+console.warn: LoginRecipes: "Falling back to a synchronous message for: https://www.instagram.com."
+console.warn: LoginRecipes: "Falling back to a synchronous message for: https://www.instagram.com."
+[Parent 13996, IPC I/O Parent] WARNING: DuplicateHandle failed for handle 0 in TransferHandles: file /builds/worker/checkouts/gecko/ipc/chromium/src/chrome/common/ipc_channel_win.cc:621
+[GPU 17416, IPC I/O Child] WARNING: pipe error: 232: file /builds/worker/checkouts/gecko/ipc/chromium/src/chrome/common/ipc_channel_win.cc:443
+JavaScript warning: https://static.cdninstagram.com/rsrc.php/v3iNkZ4/y8/l/makehaste_jhash/wW-HiOyx6ng.js?_nc_x=Ij3Wp8lg5Kz, line 1751: unreachable code after return statement
+JavaScript warning: https://static.cdninstagram.com/rsrc.php/v3iNkZ4/y8/l/makehaste_jhash/wW-HiOyx6ng.js?_nc_x=Ij3Wp8lg5Kz, line 1754: unreachable code after return statement
+JavaScript warning: https://static.cdninstagram.com/rsrc.php/v3ieCg4/yp/l/makehaste_jhash/omnPcEOTk0B.js?_nc_x=Ij3Wp8lg5Kz, line 137: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+console.warn: LoginRecipes: "Falling back to a synchronous message for: https://www.instagram.com."
+1692003115312	Marionette	INFO	Stopped listening on port 50596
+JavaScript warning: https://static.cdninstagram.com/rsrc.php/v3/y6/r/gUEU-Znmv7R.js?_nc_x=Ij3Wp8lg5Kz, line 223: Script terminated by timeout at:
+Y/P<@https://static.cdninstagram.com/rsrc.php/v3/y6/r/gUEU-Znmv7R.js?_nc_x=Ij3Wp8lg5Kz:223:3448
+
+Dynamically enable window occlusion 1
+[Parent 13996, IPC I/O Parent] WARNING: DuplicateHandle failed for handle 0 in TransferHandles: file /builds/worker/checkouts/gecko/ipc/chromium/src/chrome/common/ipc_channel_win.cc:621
+[GPU 17416, IPC I/O Child] WARNING: pipe error: 232: file /builds/worker/checkouts/gecko/ipc/chromium/src/chrome/common/ipc_channel_win.cc:443
+[Parent 13996, IPC I/O Parent] WARNING: DuplicateHandle failed for handle 0 in TransferHandles: file /builds/worker/checkouts/gecko/ipc/chromium/src/chrome/common/ipc_channel_win.cc:621
+[GPU 17416, IPC I/O Child] WARNING: pipe error: 232: file /builds/worker/checkouts/gecko/ipc/chromium/src/chrome/common/ipc_channel_win.cc:443
+[Parent 13996, IPC I/O Parent] WARNING: DuplicateHandle failed for handle 0 in TransferHandles: file /builds/worker/checkouts/gecko/ipc/chromium/src/chrome/common/ipc_channel_win.cc:621
+[GPU 17416, IPC I/O Child] WARNING: pipe error: 232: file /builds/worker/checkouts/gecko/ipc/chromium/src/chrome/common/ipc_channel_win.cc:443
+[Parent 13996, IPC I/O Parent] WARNING: DuplicateHandle failed for handle 0 in TransferHandles: file /builds/worker/checkouts/gecko/ipc/chromium/src/chrome/common/ipc_channel_win.cc:621
+[GPU 17416, IPC I/O Child] WARNING: pipe error: 232: file /builds/worker/checkouts/gecko/ipc/chromium/src/chrome/common/ipc_channel_win.cc:443
+[Parent 13996, IPC I/O Parent] WARNING: DuplicateHandle failed for handle 0 in TransferHandles: file /builds/worker/checkouts/gecko/ipc/chromium/src/chrome/common/ipc_channel_win.cc:621
+[GPU 17416, IPC I/O Child] WARNING: pipe error: 232: file /builds/worker/checkouts/gecko/ipc/chromium/src/chrome/common/ipc_channel_win.cc:443
+[Parent 13996, IPC I/O Parent] WARNING: DuplicateHandle failed for handle 0 in TransferHandles: file /builds/worker/checkouts/gecko/ipc/chromium/src/chrome/common/ipc_channel_win.cc:621
+[Parent 13996, IPC I/O Parent] WARNING: DuplicateHandle failed for handle 0 in TransferHandles: file /builds/worker/checkouts/gecko/ipc/chromium/src/chrome/common/ipc_channel_win.cc:621
+[GPU 17416, IPC I/O Child] WARNING: pipe error: 232: file /builds/worker/checkouts/gecko/ipc/chromium/src/chrome/common/ipc_channel_win.cc:443
+[GPU 17416, IPC I/O Child] WARNING: pipe error: 232: file /builds/worker/checkouts/gecko/ipc/chromium/src/chrome/common/ipc_channel_win.cc:443
+1692008510109	geckodriver	INFO	Listening on 127.0.0.1:50893
+1692008513173	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "--remote-debugging-port" "50894" "--remote-allow-hosts" "localhost" "-no-remote" "-profile" "C:\\Users\\adems\\AppData\\Local\\Temp\\rust_mozprofilex82AvG"
+console.warn: services.settings: Ignoring preference override of remote settings server
+console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
+1692008513400	Marionette	INFO	Marionette enabled
+Dynamically enable window occlusion 0
+1692008513467	Marionette	INFO	Listening on port 50902
+WebDriver BiDi listening on ws://127.0.0.1:50894
+Read port: 50902
+1692008513605	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+DevTools listening on ws://127.0.0.1:50894/devtools/browser/e18e3639-3f9e-4945-906b-678e526f706c
+JavaScript warning: https://static.cdninstagram.com/rsrc.php/v3ikWC4/yi/l/tr_TR/wW-HiOyx6ng.js?_nc_x=Ij3Wp8lg5Kz, line 1751: unreachable code after return statement
+JavaScript warning: https://static.cdninstagram.com/rsrc.php/v3ikWC4/yi/l/tr_TR/wW-HiOyx6ng.js?_nc_x=Ij3Wp8lg5Kz, line 1754: unreachable code after return statement
+JavaScript warning: https://static.cdninstagram.com/rsrc.php/v3iBLz4/y_/l/tr_TR/omnPcEOTk0B.js?_nc_x=Ij3Wp8lg5Kz, line 137: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+console.warn: LoginRecipes: "Falling back to a synchronous message for: https://www.instagram.com."
+console.warn: LoginRecipes: "Falling back to a synchronous message for: https://www.instagram.com."
+[Parent 10936, IPC I/O Parent] WARNING: DuplicateHandle failed for handle 0 in TransferHandles: file /builds/worker/checkouts/gecko/ipc/chromium/src/chrome/common/ipc_channel_win.cc:621
+[GPU 24004, IPC I/O Child] WARNING: pipe error: 232: file /builds/worker/checkouts/gecko/ipc/chromium/src/chrome/common/ipc_channel_win.cc:443
+JavaScript warning: https://static.cdninstagram.com/rsrc.php/v3iNkZ4/y8/l/makehaste_jhash/wW-HiOyx6ng.js?_nc_x=Ij3Wp8lg5Kz, line 1751: unreachable code after return statement
+JavaScript warning: https://static.cdninstagram.com/rsrc.php/v3iNkZ4/y8/l/makehaste_jhash/wW-HiOyx6ng.js?_nc_x=Ij3Wp8lg5Kz, line 1754: unreachable code after return statement
+JavaScript warning: https://static.cdninstagram.com/rsrc.php/v3ieCg4/yp/l/makehaste_jhash/omnPcEOTk0B.js?_nc_x=Ij3Wp8lg5Kz, line 137: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+console.warn: LoginRecipes: "Falling back to a synchronous message for: https://www.instagram.com."
+1692008533962	Marionette	INFO	Stopped listening on port 50902
+JavaScript warning: https://static.cdninstagram.com/rsrc.php/v3igrQ4/yX/l/makehaste_jhash/1jHSNR-tno5r2p7esd700UamXpE8oJ8RcejNaFq9EwRD4CrT-LOd0sa3qd3_bDos5JLRucVY1B-FL4mGebq5ZlfMIyWjY0leU0apkACKkwp_j1bQvNc-jWcPD9VmJqKWOpb4ksCs8--wZX8zQ-9h36-TbwE6eCs0zFrcp2jwrz84Sny4kU-e87hSDJFFxq2cTGmefTCb8i6hpAEPXMO_OlI0kz9nEQwYJ_qwKdJ7iYdvfcpnyBJEoEECbDP0_vsWqehdEtWwFmhkPIS8lOuDQVEH-g-FDC.js?_nc_x=Ij3Wp8lg5Kz, line 50: Script terminated by timeout at:
+y@https://static.cdninstagram.com/rsrc.php/v3igrQ4/yX/l/makehaste_jhash/1jHSNR-tno5r2p7esd700UamXpE8oJ8RcejNaFq9EwRD4CrT-LOd0sa3qd3_bDos5JLRucVY1B-FL4mGebq5ZlfMIyWjY0leU0apkACKkwp_j1bQvNc-jWcPD9VmJqKWOpb4ksCs8--wZX8zQ-9h36-TbwE6eCs0zFrcp2jwrz84Sny4kU-e87hSDJFFxq2cTGmefTCb8i6hpAEPXMO_OlI0kz9nEQwYJ_qwKdJ7iYdvfcpnyBJEoEECbDP0_vsWqehdEtWwFmhkPIS8lOuDQVEH-g-FDC.js?_nc_x=Ij3Wp8lg5Kz:50:5658
+Ng@https://static.cdninstagram.com/rsrc.php/v3igrQ4/yX/l/makehaste_jhash/1jHSNR-tno5r2p7esd700UamXpE8oJ8RcejNaFq9EwRD4CrT-LOd0sa3qd3_bDos5JLRucVY1B-FL4mGebq5ZlfMIyWjY0leU0apkACKkwp_j1bQvNc-jWcPD9VmJqKWOpb4ksCs8--wZX8zQ-9h36-TbwE6eCs0zFrcp2jwrz84Sny4kU-e87hSDJFFxq2cTGmefTCb8i6hpAEPXMO_OlI0kz9nEQwYJ_qwKdJ7iYdvfcpnyBJEoEECbDP0_vsWqehdEtWwFmhkPIS8lOuDQVEH-g-FDC.js?_nc_x=Ij3Wp8lg5Kz:50:72831
+Hg@https://static.cdninstagram.com/rsrc.php/v3igrQ4/yX/l/makehaste_jhash/1jHSNR-tno5r2p7esd700UamXpE8oJ8RcejNaFq9EwRD4CrT-LOd0sa3qd3_bDos5JLRucVY1B-FL4mGebq5ZlfMIyWjY0leU0apkACKkwp_j1bQvNc-jWcPD9VmJqKWOpb4ksCs8--wZX8zQ-9h36-TbwE6eCs0zFrcp2jwrz84Sny4kU-e87hSDJFFxq2cTGmefTCb8i6hpAEPXMO_OlI0kz9nEQwYJ_qwKdJ7iYdvfcpnyBJEoEECbDP0_vsWqehdEtWwFmhkPIS8lOuDQVEH-g-FDC.js?_nc_x=Ij3Wp8lg5Kz:50:72081
+ak@https://static.cdninstagram.com/rsrc.php/v3igrQ4/yX/l/makehaste_jhash/1jHSNR-tno5r2p7esd700UamXpE8oJ8RcejNaFq9EwRD4CrT-LOd0sa3qd3_bDos5JLRucVY1B-FL4mGebq5ZlfMIyWjY0leU0apkACKkwp_j1bQvNc-jWcPD9VmJqKWOpb4ksCs8--wZX8zQ-9h36-TbwE6eCs0zFrcp2jwrz84Sny4kU-e87hSDJFFxq2cTGmefTCb8i6hpAEPXMO_OlI0kz9nEQwYJ_qwKdJ7iYdvfcpnyBJEoEECbDP0_vsWqehdEtWwFmhkPIS8lOuDQVEH-g-FDC.js?_nc_x=Ij3Wp8lg5Kz:50:123127
+Mj@https://static.cdninstagram.com/rsrc.php/v3igrQ4/yX/l/makehaste_jhash/1jHSNR-tno5r2p7esd700UamXpE8oJ8RcejNaFq9EwRD4CrT-LOd0sa3qd3_bDos5JLRucVY1B-FL4mGebq5ZlfMIyWjY0leU0apkACKkwp_j1bQvNc-jWcPD9VmJqKWOpb4ksCs8--wZX8zQ-9h36-TbwE6eCs0zFrcp2jwrz84Sny4kU-e87hSDJFFxq2cTGmefTCb8i6hpAEPXMO_OlI0kz9nEQwYJ_qwKdJ7iYdvfcpnyBJEoEECbDP0_vsWqehdEtWwFmhkPIS8lOuDQVEH-g-FDC.js?_nc_x=Ij3Wp8lg5Kz:50:117270
+Jj@https://static.cdninstagram.com/rsrc.php/v3igrQ4/yX/l/makehaste_jhash/1jHSNR-tno5r2p7esd700UamXpE8oJ8RcejNaFq9EwRD4CrT-LOd0sa3qd3_bDos5JLRucVY1B-FL4mGebq5ZlfMIyWjY0leU0apkACKkwp_j1bQvNc-jWcPD9VmJqKWOpb4ksCs8--wZX8zQ-9h36-TbwE6eCs0zFrcp2jwrz84Sny4kU-e87hSDJFFxq2cTGmefTCb8i6hpAEPXMO_OlI0kz9nEQwYJ_qwKdJ7iYdvfcpnyBJEoEECbDP0_vsWqehdEtWwFmhkPIS8lOuDQVEH-g-FDC.js?_nc_x=Ij3Wp8lg5Kz:50:116441
+Ij@https://static.cdninstagram.com/rsrc.php/v3igrQ4/yX/l/makehaste_jhash/1jHSNR-tno5r2p7esd700UamXpE8oJ8RcejNaFq9EwRD4CrT-LOd0sa3qd3_bDos5JLRucVY1B-FL4mGebq5ZlfMIyWjY0leU0apkACKkwp_j1bQvNc-jWcPD9VmJqKWOpb4ksCs8--wZX8zQ-9h36-TbwE6eCs0zFrcp2jwrz84Sny4kU-e87hSDJFFxq2cTGmefTCb8i6hpAEPXMO_OlI0kz9nEQwYJ_qwKdJ7iYdvfcpnyBJEoEECbDP0_vsWqehdEtWwFmhkPIS8lOuDQVEH-g-FDC.js?_nc_x=Ij3Wp8lg5Kz:50:116254
+tj@https://static.cdninstagram.com/rsrc.php/v3igrQ4/yX/l/makehaste_jhash/1jHSNR-tno5r2p7esd700UamXpE8oJ8RcejNaFq9EwRD4CrT-LOd0sa3qd3_bDos5JLRucVY1B-FL4mGebq5ZlfMIyWjY0leU0apkACKkwp_j1bQvNc-jWcPD9VmJqKWOpb4ksCs8--wZX8zQ-9h36-TbwE6eCs0zFrcp2jwrz84Sny4kU-e87hSDJFFxq2cTGmefTCb8i6hpAEPXMO_OlI0kz9nEQwYJ_qwKdJ7iYdvfcpnyBJEoEECbDP0_vsWqehdEtWwFmhkPIS8lOuDQVEH-g-FDC.js?_nc_x=Ij3Wp8lg5Kz:50:113026
+applyWithGuard@https://static.cdninstagram.com/rsrc.php/v3/y6/r/gUEU-Znmv7R.js?_nc_x=Ij3Wp8lg5Kz:59:10432
+c@https://static.cdninstagram.com/rsrc.php/v3/y6/r/gUEU-Znmv7R.js?_nc_x=Ij3Wp8lg5Kz:59:11166
+N@https://static.cdninstagram.com/rsrc.php/v3/y6/r/gUEU-Znmv7R.js?_nc_x=Ij3Wp8lg5Kz:223:2343
+U@https://static.cdninstagram.com/rsrc.php/v3/y6/r/gUEU-Znmv7R.js?_nc_x=Ij3Wp8lg5Kz:223:3045
+
+Dynamically enable window occlusion 1
+[Parent 10936, IPC I/O Parent] WARNING: DuplicateHandle failed for handle 0 in TransferHandles: file /builds/worker/checkouts/gecko/ipc/chromium/src/chrome/common/ipc_channel_win.cc:621
+[GPU 24004, IPC I/O Child] WARNING: pipe error: 232: file /builds/worker/checkouts/gecko/ipc/chromium/src/chrome/common/ipc_channel_win.cc:443
+[Parent 10936, IPC I/O Parent] WARNING: DuplicateHandle failed for handle 0 in TransferHandles: file /builds/worker/checkouts/gecko/ipc/chromium/src/chrome/common/ipc_channel_win.cc:621
+[GPU 24004, IPC I/O Child] WARNING: pipe error: 232: file /builds/worker/checkouts/gecko/ipc/chromium/src/chrome/common/ipc_channel_win.cc:443
+[Parent 10936, IPC I/O Parent] WARNING: DuplicateHandle failed for handle 0 in TransferHandles: file /builds/worker/checkouts/gecko/ipc/chromium/src/chrome/common/ipc_channel_win.cc:621
+[GPU 24004, IPC I/O Child] WARNING: pipe error: 232: file /builds/worker/checkouts/gecko/ipc/chromium/src/chrome/common/ipc_channel_win.cc:443
+[Parent 10936, IPC I/O Parent] WARNING: DuplicateHandle failed for handle 0 in TransferHandles: file /builds/worker/checkouts/gecko/ipc/chromium/src/chrome/common/ipc_channel_win.cc:621
+[GPU 24004, IPC I/O Child] WARNING: pipe error: 232: file /builds/worker/checkouts/gecko/ipc/chromium/src/chrome/common/ipc_channel_win.cc:443
+[Parent 10936, IPC I/O Parent] WARNING: DuplicateHandle failed for handle 0 in TransferHandles: file /builds/worker/checkouts/gecko/ipc/chromium/src/chrome/common/ipc_channel_win.cc:621
+[GPU 24004, IPC I/O Child] WARNING: pipe error: 232: file /builds/worker/checkouts/gecko/ipc/chromium/src/chrome/common/ipc_channel_win.cc:443

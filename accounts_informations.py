@@ -5,7 +5,7 @@ from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
-from auto_unfollow_sel import lists_and_counts
+from auto_unfollow_selenium import lists_and_counts
 from PIL import Image,ImageTk,ImageDraw
 
 class AccountsInformationsWindow():
