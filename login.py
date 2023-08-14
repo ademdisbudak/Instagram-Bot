@@ -14,7 +14,7 @@ class LoginWindow:
     
         self.account_database_username = ""
         self.account_database_password = ""
-        self.browser = None
+
         self.login_success_statu = False
         self.t1 = None
         self.logo_img = None
@@ -46,8 +46,8 @@ class LoginWindow:
         # endregion
 
         # region Label Frame
-        label_widget = tk.Label(frame, text="Login Page",font=fonts.get_big_font(frame),fg="darkorange4")
-        self.account_login_page = tk.LabelFrame(frame,text="Login Page",labelanchor="n",labelwidget=label_widget,border=False)
+        # label_widget = tk.Label(frame, text="Login Page",font=fonts.get_big_font(frame),fg="darkorange4") 
+        self.account_login_page = tk.LabelFrame(frame,labelanchor="n",border=False)
         self.account_login_page.pack(fill="both",expand=True)
         # endregion
 
@@ -56,7 +56,7 @@ class LoginWindow:
         self.logo_img = ImageTk.PhotoImage(self.logo_img)
 
         logo_label = tk.Label(self.account_login_page,image=self.logo_img)
-        logo_label.grid(row=0,column=0,columnspan=2,padx=25,pady=10)
+        logo_label.grid(row=0,column=0,columnspan=2,padx=20,pady=10)
 
         welcome_label = tk.Label(self.account_login_page,text="Welcome to my instagram automation!\n@4demph - Adem Dişbudak",font=fonts.get_middle_font(frame),fg="darkorange4") 
         welcome_label.grid(row=1,column=0,columnspan=2,padx=25,pady=10)
