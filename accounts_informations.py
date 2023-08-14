@@ -13,24 +13,25 @@ class AccountsInformationsWindow():
     def __init__(self,parent_frame):
         self.parent_frame = parent_frame
 
-        self.first_label_frame_background_color = "ivory"
-        self.second_label_frame_background_color = "aliceblue"
-        self.third_label_frame_background_color = "lightsteelblue"
+        self.first_label_frame_background_color = "#CDC9C9"
+        self.second_label_frame_background_color = "#EEE9E9"
+        self.third_label_frame_background_color = "#FFFAFA"
 
         self.delete_follower_list_checkbutton_Boolean_Var = tk.BooleanVar(value=False)
         self.delete_followup_list_checkbutton_Boolean_Var = tk.BooleanVar(value=False)
         self.scrap_follower_list_checkbutton_Boolean_Var = tk.BooleanVar(value=False)
         self.scrap_followup_list_checkbutton_Boolean_Var = tk.BooleanVar(value=True)
 
-        self.scroll_min_time = 0 # Takip ya da takipçi çekilme sürecinde en düşük scroll zamanıdır.
-        self.scroll_max_time = 1 # Takip ya da takipçi çekilme sürecinde en yüksek scroll zamanıdır.
-        self.scroll_max_repeat_count = 20 # Takip ya da takipçi çekilme sürecinde kaç tekrara düştüğü zaman scroll işleminin biteceğini belirler.
-        self.margin_of_error = 5 # Takip ya da takipçi çekilme sürecinde eksik kaç takipçi ya da takip kabul edilebilir olsun?
+        self.scroll_min_time = 0
+        self.scroll_max_time = 1 
+        self.scroll_max_repeat_count = 20
+        self.margin_of_error = 5 
 
     def configure_fonts(self,weight,size):
         custom_font = font.Font(weight=weight,size=size,family="Calibri")
         return custom_font
     
+
     def create_account_informations_db(self):
         conn = sqlite3.connect(paths.account_informations_db_path)
         cursor = conn.cursor()
@@ -45,6 +46,7 @@ class AccountsInformationsWindow():
         conn = sqlite3.connect(paths.auto_unfollow_db_path)
         cursor = conn.cursor()
         return conn,cursor
+
 
     def create_browser(self):
         # region in proxy_list içerisinden rastgele bir proxy çekme
@@ -79,14 +81,15 @@ class AccountsInformationsWindow():
         browser = webdriver.Firefox(options=option)
         return browser
     
+    
     def create_components(self):
 
         # region 1 - First Label Frame - Pilot Hesap Giriş Butonu
         self.first_label_frame = tk.LabelFrame(self.parent_frame,bg=self.first_label_frame_background_color,border=False)
         self.first_label_frame.grid(row=0,column=0,padx=10,pady=10)
 
-        pilot_account_check_label = tk.Label(self.first_label_frame,text="Eğer yedek bir hesap girişi yapmadıysanız program çalışmaz, bu yüzden aşağıdaki butona tıklayıp yedek bir hesaba giriniz!",fg="red",font=self.configure_fonts("bold",10))
-        pilot_account_check_label.grid(row=0,column=0,padx=10,pady=(10,5))
+        pilot_account_check_label = tk.Label(self.first_label_frame,text="If you have not logged in to a backup account, the program will not work, so click on the button below to log in to a backup account!",fg="red",font=self.configure_fonts("bold",10))
+        pilot_account_check_label.grid(row=0,column=0,padx=60,pady=(10,5))
 
         pilot_account_login_page_button = tk.Button(self.first_label_frame,text="Entry to Pilot Account Login Page",command=self.create_first_label_frame_toplevel_window,font=self.configure_fonts("bold",10))
         pilot_account_login_page_button.grid(row=1,column=0,padx=10,pady=10,sticky="we")
@@ -96,7 +99,6 @@ class AccountsInformationsWindow():
         # endregion
 
         # region 2 - Second Label Frame - Sayılar ve Listeler
-        # Not: Buradaki tüm sayılar manuel olarak güncellenmemeli. Sadece update_from_beginning fonksiyonunda ve takip - takipçi alımı sonrası yapılmalıdır.
         self.second_label_frame = tk.LabelFrame(self.parent_frame,bg=self.second_label_frame_background_color,border=False)
         self.second_label_frame.grid(row=1,column=0,padx=10,pady=10)
 
@@ -141,7 +143,7 @@ class AccountsInformationsWindow():
         # endregion
       
         for widget in self.second_label_frame.winfo_children():
-            widget.grid_configure(padx=10,pady=10)
+            widget.grid_configure(padx=34,pady=10)
             widget.configure(bg=self.second_label_frame_background_color)
         # endregion
 
@@ -200,6 +202,7 @@ class AccountsInformationsWindow():
             widget.configure(background=self.third_label_frame_background_color)
         # endregion
 
+
     def get_login_account_username(self): # Login hesabının kullanıcı adının alınması
         try:
             (conn,cursor) = self.create_accounts_db()
@@ -234,7 +237,7 @@ class AccountsInformationsWindow():
             print("Ekran fotoğrafı çekilirken bir sorun oluştu: ",e)
             
     def show_profile_photo(self): # Profil fotoğrafının programa yansıtılması
-        image = Image.open(paths.profile_photo_png_path).resize((100,100))
+        image = Image.open(paths.profile_photo_png_path).resize((200,200))
         mask = Image.new("L",image.size,0)
         draw = ImageDraw.Draw(mask)
         draw.ellipse((0,0,image.size[0],image.size[1]),fill=255)
@@ -304,6 +307,7 @@ class AccountsInformationsWindow():
         t4.join()
         print("Takip ve takipçi sayıları alındı.")
         # endregion
+
 
     def create_second_label_frame_toplevel_windows(self,window_title):
         window = tk.Toplevel()
@@ -428,6 +432,18 @@ class AccountsInformationsWindow():
 
         # region Components
         self.pilot_account_login_page = tk.Toplevel(self.parent_frame)
+        self.pilot_account_login_page.title("Login")
+
+        self.pilot_account_login_page.update_idletasks()
+        screen_width = self.pilot_account_login_page.winfo_screenwidth()
+        screen_height = self.pilot_account_login_page.winfo_screenheight()
+
+        window_width = self.pilot_account_login_page.winfo_width()
+        window_height = self.pilot_account_login_page.winfo_height()
+
+        x = (screen_width - window_width) // 2
+        y = (screen_height - window_height) // 2
+        self.pilot_account_login_page.geometry(f"+{x}+{y}")
 
         self.pilot_account_login_page_first_label_frame = tk.LabelFrame(self.pilot_account_login_page,border=False)
         self.pilot_account_login_page_first_label_frame.pack()
@@ -459,7 +475,8 @@ class AccountsInformationsWindow():
 
         update_from_beginning_for_login_page()
         self.pilot_account_login_page.mainloop()
-    
+
+
     def update_from_beginning(self):
 
         def update_second_label_frame_counts(): # just beginnig update
@@ -507,6 +524,7 @@ class AccountsInformationsWindow():
         # Fonksiyounsuz - Program başladığı zaman ekranda bilgileri olan profilin fotoğrafı gelmeliydi.
         self.third_label_frame.after(0,self.show_profile_photo)
     
+
     def run_accounts_informations_window(self):
         self.create_components()
         self.update_from_beginning()
