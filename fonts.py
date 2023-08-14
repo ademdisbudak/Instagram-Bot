@@ -1,27 +1,42 @@
 from tkinter import font
-
-def get_big_font(root):
-    return font.Font(root, family="Calibri",size=30, weight="bold")
-
-def get_middle_font(root):
-    return font.Font(root, family="Calibri", size=12, weight="bold")
-
-def get_small_font(root):
-    return font.Font(root, family="Calibri", size=9, weight="normal")
-
-
-
-
-
-
+import random
 import tkinter as tk
-def show_all_font():
-    root = tk.Tk()
+
+
+# ---------------------------------------------------------------------
+def get_very_big_stencil_font(root):
+    return font.Font(root,family="Stencil",size=40,weight="bold")
+# ---------------------------------------------------------------------
+
+
+# ---------------------------------------------------------------------
+def get_big_calibri_font(root):
+    return font.Font(root, family="Calibri",size=24, weight="bold")
+def get_medium_calibri_font(root):
+    return font.Font(root, family="Calibri",size=12, weight="bold")
+def get_small_calibri_font(root):
+    return font.Font(root, family="Calibri",size=10, weight="normal")
+# ---------------------------------------------------------------------
+
+# ---------------------------------------------------------------------
+def get_big_rockwell_font(root):
+    return font.Font(root,family="Rockwell",size=25,weight="bold")
+
+def get_medium_rockwell_font(root):
+    return font.Font(root,family="Rockwell",size=12,weight="bold")
+
+
+
+def get_big_random_font(root):
+
+    # creating a list with all font families
+    font_list = []
     font_names = tk.font.families()
-
     for font_name in font_names:
-        print(font_name)
+        font_list.append(font_name)
+    
+    # making a random choice
+    random_choice = random.choice(font_list)
+    print(random_choice)
 
-    root.destroy()
-
-# show_all_font() # If you want see all font names, do it.
+    return font.Font(root,family=random_choice,size=24,weight="bold")

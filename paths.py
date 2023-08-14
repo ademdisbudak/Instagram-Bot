@@ -47,6 +47,10 @@ profile_photo_png_path = "./assets/photo/profile_photo.png"
 play_png_path = "./assets/photo/play.png"
 pause_png_path = "./assets/photo/pause.png"
 auto_unfollow_png_path = "./assets/photo/auto_unfollow.png"
+linkedin_png_path = "./assets/photo/linkedin.png"
+instagram_png_path = "./assets/photo/instagram.png"
+github_png_path = "./assets/photo/github.png"
+web_address_png_path = "./assets/photo/web_address.png"
 
 # Music's
 background_music_mp3_path = "./assets/music/background_music.mp3" 

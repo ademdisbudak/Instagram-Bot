@@ -1,8 +1,9 @@
 import tkinter as tk
 from selenium import webdriver
 from selenium.webdriver.common.by import By
+from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
 from PIL import Image,ImageTk
-from pygame import mixer
 import subprocess,sqlite3,paths,threading,time,random,pickle,fonts
 
 
@@ -47,7 +48,7 @@ class LoginWindow:
         logo_label = tk.Label(self.account_login_page,image=self.logo_img)
         logo_label.grid(row=0,column=0,columnspan=2,padx=20,pady=10)
 
-        welcome_label = tk.Label(self.account_login_page,text="Welcome to my instagram automation!\n@4demph - Adem Dişbudak",font=fonts.get_middle_font(frame),fg="darkorange4") 
+        welcome_label = tk.Label(self.account_login_page,text="Welcome to my instagram automation!\n@4demph - Adem Dişbudak",font=fonts.get_medium_calibri_font(frame),fg="darkorange4") 
         welcome_label.grid(row=1,column=0,columnspan=2,padx=25,pady=10)
         # endregion
 
@@ -56,16 +57,16 @@ class LoginWindow:
         self.username_String_Var.trace_add("write",self.alert_for_username)
         self.username_warning_label = tk.Label(self.account_login_page,text="",fg="red")
 
-        login_username_label = tk.Label(self.account_login_page,text="Username:",font=fonts.get_middle_font(frame),fg="darkorange3")
+        login_username_label = tk.Label(self.account_login_page,text="Username:",font=fonts.get_medium_calibri_font(frame),fg="darkorange3")
         login_username_label.grid(row=2,column=0,sticky="e",pady=(0,10))
-        self.login_username_entry = tk.Entry(self.account_login_page,textvariable=self.username_String_Var,font=fonts.get_small_font(frame),fg="darkorange2")
+        self.login_username_entry = tk.Entry(self.account_login_page,textvariable=self.username_String_Var,font=fonts.get_small_calibri_font(frame),fg="darkorange2")
         self.login_username_entry.grid(row=2,column=1,sticky="w",padx=5,pady=(0,10))
         # endregion
 
         # region Password
-        login_password_label = tk.Label(self.account_login_page,text="Password:",font=fonts.get_middle_font(frame),fg="darkorange3")
+        login_password_label = tk.Label(self.account_login_page,text="Password:",font=fonts.get_medium_calibri_font(frame),fg="darkorange3")
         login_password_label.grid(row=4,column=0,sticky="e",pady=(0,10)) # row = 4 olmasının sebebi alert_for_username içerisindeki username_warning_label -> row=3 
-        self.login_password_entry = tk.Entry(self.account_login_page,show="*",font=fonts.get_small_font(frame),fg="darkorange2") 
+        self.login_password_entry = tk.Entry(self.account_login_page,show="*",font=fonts.get_small_calibri_font(frame),fg="darkorange2") 
         self.login_password_entry.grid(row=4,column=1,sticky="w",padx=5,pady=(0,10)) # row = 4 olmasının sebebi alert_for_username içerisindeki username_warning_label -> row=3 
         # endregion
 
@@ -102,8 +103,8 @@ class LoginWindow:
             conn.execute("DELETE FROM Accounts_Data")
             cursor.execute("INSERT INTO Accounts_Data (username,password) VALUES (?,?)",(username,password))
             conn.commit()
-        except:
-            print("Bir hata oldu!!")
+        except Exception as e:
+            print("save_to_database",e)
         finally:
             cursor.close()
             conn.close()
@@ -119,7 +120,7 @@ class LoginWindow:
             self.account_database_username = account_database_username
             self.account_database_password = account_database_password
         except Exception as e:
-            print(e,"Login hesabının bilgileri Accounts_Data'dan alınırken sorun oluştu!")
+            print("read_to_database",e)
         finally:
             cursor.close()
             conn.close()
@@ -139,14 +140,12 @@ class LoginWindow:
             login = self.browser.find_element(By.XPATH,"//button[@type='submit']")
             login.click()
             print("Loginning..")
-            time.sleep(5)
-
         except Exception as e:
-            print(e,"click_login")
+            print("click_login",e)
 
     def determineCookieStatu(self):
         try:
-            self.browser.find_element(By.XPATH, "//*[@id='slfErrorAlert']")
+            WebDriverWait(self.browser,10).until(EC.presence_of_element_located((By.XPATH, "//*[@id='slfErrorAlert']")))
             print("Can not be logged in.")
             self.login_success_statu = False
         except:
