@@ -1,10 +1,9 @@
 import tkinter as tk
-import subprocess,sqlite3,paths,threading,time,random,pickle
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 from PIL import Image,ImageTk
 from pygame import mixer
-import fonts
+import subprocess,sqlite3,paths,threading,time,random,pickle,fonts
 
 
 
@@ -20,6 +19,9 @@ class LoginWindow:
         self.t1 = None
         self.logo_img = None
         self.playing = False
+
+        mixer.init()
+        mixer.music.load(paths.background_music_mp3_path)
 
     def configure_properties(self):
         
@@ -39,25 +41,25 @@ class LoginWindow:
     def create_components(self):
 
         # region Main Frame
-        frame = tk.Frame(self.login_window,bg="white")
+        frame = tk.Frame(self.login_window)
         frame.pack()
         # endregion
 
         # region Label Frame
-        label_widget = tk.Label(frame, text="Login Page",bg="white",font=fonts.get_big_font(frame))
-        self.account_login_page = tk.LabelFrame(frame,text="Login Page",labelanchor="n",labelwidget=label_widget,bg="white",border=False)
+        label_widget = tk.Label(frame, text="Login Page",font=fonts.get_big_font(frame),fg="darkorange4")
+        self.account_login_page = tk.LabelFrame(frame,text="Login Page",labelanchor="n",labelwidget=label_widget,border=False)
         self.account_login_page.pack(fill="both",expand=True)
         # endregion
 
         # region Logo
-        self.logo_img = Image.open(paths.logo_png_path)
+        self.logo_img = Image.open(paths.auto_unfollow_png_path).resize((250,250))
         self.logo_img = ImageTk.PhotoImage(self.logo_img)
 
         logo_label = tk.Label(self.account_login_page,image=self.logo_img)
-        logo_label.grid(row=0,column=0,columnspan=2,sticky="ew")
+        logo_label.grid(row=0,column=0,columnspan=2,padx=25,pady=10)
 
-        welcome_label = tk.Label(self.account_login_page,text="Welcome to my instagram automation!",font=fonts.get_middle_font(frame)) 
-        welcome_label.grid(row=1,column=0,columnspan=2)
+        welcome_label = tk.Label(self.account_login_page,text="Welcome to my instagram automation!\n@4demph - Adem Dişbudak",font=fonts.get_middle_font(frame),fg="darkorange4") 
+        welcome_label.grid(row=1,column=0,columnspan=2,padx=25,pady=10)
         # endregion
 
         # region Username
@@ -65,35 +67,24 @@ class LoginWindow:
         self.username_String_Var.trace_add("write",self.alert_for_username)
         self.username_warning_label = tk.Label(self.account_login_page,text="",fg="red")
 
-        login_username_label = tk.Label(self.account_login_page,text="Username:")
-        login_username_label.grid(row=2,column=0,padx=(50,0),pady=(10,0))
-        self.login_username_entry = tk.Entry(self.account_login_page,textvariable=self.username_String_Var)
-        self.login_username_entry.grid(row=2,column=1,padx=10,pady=(10,0))
+        login_username_label = tk.Label(self.account_login_page,text="Username:",font=fonts.get_middle_font(frame),fg="darkorange3")
+        login_username_label.grid(row=2,column=0,sticky="e",pady=(0,10))
+        self.login_username_entry = tk.Entry(self.account_login_page,textvariable=self.username_String_Var,font=fonts.get_small_font(frame),fg="darkorange2")
+        self.login_username_entry.grid(row=2,column=1,sticky="w",padx=5,pady=(0,10))
         # endregion
 
         # region Password
-        login_password_label = tk.Label(self.account_login_page,text="Password:")
-        login_password_label.grid(row=4,column=0,padx=(50,0),pady=(0,10)) # row = 4 olmasının sebebi alert_for_username içerisindeki username_warning_label -> row=3 
-        self.login_password_entry = tk.Entry(self.account_login_page,show="*") 
-        self.login_password_entry.grid(row=4,column=1,padx=10,pady=(0,10)) # row = 4 olmasının sebebi alert_for_username içerisindeki username_warning_label -> row=3 
+        login_password_label = tk.Label(self.account_login_page,text="Password:",font=fonts.get_middle_font(frame),fg="darkorange3")
+        login_password_label.grid(row=4,column=0,sticky="e",pady=(0,10)) # row = 4 olmasının sebebi alert_for_username içerisindeki username_warning_label -> row=3 
+        self.login_password_entry = tk.Entry(self.account_login_page,show="*",font=fonts.get_small_font(frame),fg="darkorange2") 
+        self.login_password_entry.grid(row=4,column=1,sticky="w",padx=5,pady=(0,10)) # row = 4 olmasının sebebi alert_for_username içerisindeki username_warning_label -> row=3 
         # endregion
 
         # region Login Button
-        login_button = tk.Button(self.account_login_page,text="Login",command=self.startLoginButton)
-        login_button.grid(row=5,column=0,padx=10,pady=10,columnspan=2,sticky="nsew")
+        login_button = tk.Button(self.account_login_page,text="Login",command=self.startLoginButton,background="darkorange2",foreground="white",width=30)
+        login_button.grid(row=5,column=0,padx=10,pady=(10,25),columnspan=2)
         # endregion 
 
-        # region Music Button
-        mixer.init()
-        mixer.music.load(paths.background_music_mp3_path)
-        self.create_music_button("play",6,0,10,10,paths.play_png_path) 
-        self.create_music_button("pause",6,1,10,10,paths.pause_png_path)
-        # endregion
-
-        for widget in self.account_login_page.winfo_children():
-            widget.configure(bg="white")
-            widget.grid_configure(padx=30,pady=10)
-    
 
     # region Username Check
     def alert_for_username(self,*args):
@@ -108,7 +99,7 @@ class LoginWindow:
     def check_username_entry_rules(self,username):
         turkish_characters = 'çÇğĞıİöÖşŞüÜ'
 
-        has_turkish_character = any(char in username for char in turkish_characters) # turkish_characters içerisindeki harflerden herhangi biri içi True değer döndürür.
+        has_turkish_character = any(char in username for char in turkish_characters) 
         return len(username) >= 4 and not has_turkish_character 
     # endregion
 
@@ -126,7 +117,7 @@ class LoginWindow:
         except:
             print("Bir hata oldu!!")
         finally:
-            cursor.close() # cursor conn'dan önce kapatılmalıdır.
+            cursor.close()
             conn.close()
 
     def readToDatabase(self):
@@ -208,28 +199,6 @@ class LoginWindow:
         self.login_window.after(100, check_threads)
     # endregion
 
-    def create_music_button(self,play_or_pause,row,column,padx,pady,img):
-        if play_or_pause == "play":
-            def play_or_pause_music():
-                if not self.playing:
-                    mixer.music.play()
-                    self.playing = True
-        else:
-            def play_or_pause_music():
-                if self.playing:
-                    mixer.music.stop()
-                    self.playing = False
-                
-        button_canvas = tk.Canvas(self.account_login_page,width=50,height=50,bg="white",highlightthickness=0)
-        button_canvas.grid(row=row,column=column,padx=padx,pady=pady)
-
-        button_img = Image.open(img).resize((40,40))
-        button_img = ImageTk.PhotoImage(button_img)
-
-        button = tk.Button(button_canvas,image=button_img,command=play_or_pause_music,bd=0,highlightthickness=0,relief="flat",bg="white",highlightbackground="white")
-        button.image = button_img
-        button.grid(row=row,column=column,padx=padx,pady=pady,sticky="nsew")
-          
     def update_from_beginning(self):
         def fill_username_and_password():
             conn = sqlite3.connect(paths.login_db_path)
@@ -253,3 +222,29 @@ class LoginWindow:
 
 if __name__ == "__main__":
     LoginWindow().run_login_window()
+
+
+
+# region Deleted Functions
+        # def create_music_button(self,play_or_pause,row,column,padx,pady,img):
+        #     if play_or_pause == "play":
+        #         def play_or_pause_music():
+        #             if not self.playing:
+        #                 mixer.music.play()
+        #                 self.playing = True
+        #     else:
+        #         def play_or_pause_music():
+        #             if self.playing:
+        #                 mixer.music.stop()
+        #                 self.playing = False
+                    
+        #     button_canvas = tk.Canvas(self.account_login_page,width=50,height=50,bg="white",highlightthickness=0)
+        #     button_canvas.grid(row=row,column=column,padx=padx,pady=pady)
+
+        #     button_img = Image.open(img).resize((40,40))
+        #     button_img = ImageTk.PhotoImage(button_img)
+
+        #     button = tk.Button(button_canvas,image=button_img,command=play_or_pause_music,bd=0,highlightthickness=0,relief="flat",bg="white",highlightbackground="white")
+        #     button.image = button_img
+        #     button.grid(row=row,column=column,padx=padx,pady=pady,sticky="nsew")
+# endregion

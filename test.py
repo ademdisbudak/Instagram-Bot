@@ -1,37 +1,18 @@
 import tkinter as tk
+from tkinter import font
 
-class CenteredWindow:
+root = tk.Tk()
+root.title("Özel Font Kullanımı")
 
-    def __init__(self):
-        self.window = tk.Tk()
-        self.configure_properties()
+# Font dosyasının yolunu belirtin
+font_path = "fonts/Caprasimo-Regular.ttf"
 
-        self.create_components()
-        self.center_window()
+# Fontu adlandırın
+custom_font = tk.font.nametofont("Caprasimo")
+custom_font.configure(family="Caprasimo", file=font_path, size=30)
 
-    def configure_properties(self):
-        self.window.title("Centered Window")
+# Yeni bir etiket (label) oluşturun ve fontu ayarlayın
+label = tk.Label(root, text="Merhaba Özel Font!", font=custom_font)
+label.pack(pady=20)
 
-    def create_components(self):
-        label = tk.Label(self.window, text="Bu pencere ekranın tam ortasında görünecek.")
-        label.pack(padx=10, pady=10)
-
-        button = tk.Button(self.window, text="Kapat", command=self.window.quit)
-        button.pack(pady=10)
-
-    def center_window(self):
-        self.window.update_idletasks()  # Pencere boyutunu almak için güncelleme yapılır
-        screen_width = self.window.winfo_screenwidth()
-        screen_height = self.window.winfo_screenheight()
-
-        x = (screen_width - self.window.winfo_width()) // 2
-        y = (screen_height - self.window.winfo_height()) // 2
-
-        self.window.geometry(f"+{x}+{y}")  # Pencereyi ortalamak için konumlandırılır
-
-    def run(self):
-        self.window.mainloop()
-
-if __name__ == "__main__":
-    app = CenteredWindow()
-    app.run()
+root.mainloop()
