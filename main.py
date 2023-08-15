@@ -76,7 +76,7 @@ class MainWindow:
             title_and_logo_label_frame.grid(row=0,column=0,padx=7,pady=7)
 
             # region Title
-            title = tk.Label(title_and_logo_label_frame,text="Welcome!",font=fonts.get_very_big_stencil_font(title_and_logo_label_frame),fg="chocolate4")
+            title = tk.Label(title_and_logo_label_frame,text="Welcome!",font=fonts.get_stencil_font(title_and_logo_label_frame,40),fg="chocolate4")
             title.grid(row=0,column=0)
             # endregion
 

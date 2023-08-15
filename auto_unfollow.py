@@ -2,7 +2,7 @@ import tkinter as tk
 from tkinter import scrolledtext
 from PIL import Image,ImageTk
 from auto_unfollow_selenium import lists_and_counts,unfollow_bot
-import paths,threading
+import paths,threading,fonts
 
 class AutoUnfollowWindow:
 
@@ -13,18 +13,23 @@ class AutoUnfollowWindow:
 
         # region First Label Frame 
         self.first_label_frame = tk.LabelFrame(self.parent_frame)
-        self.first_label_frame.grid(row=0,column=0,rowspan=2,padx=15,pady=15)
-
-        first_label_title = tk.Label(self.first_label_frame,text="Non Mutual Listesi")
+        self.first_label_frame.grid(row=0,column=0,rowspan=2)
+        
+        # region Non Mutual List
+        first_label_title = tk.Label(self.first_label_frame,text="Non Mutual List",font=fonts.get_stencil_font(self.first_label_frame,20),fg="grey")
         first_label_title.grid(row=0,column=0,padx=10,pady=(5,0))
 
-        self.non_mutual_scrolledText = scrolledtext.ScrolledText(self.first_label_frame,width = 25, height = 35)
+        self.non_mutual_scrolledText = scrolledtext.ScrolledText(self.first_label_frame,width = 25, height = 31)
+        self.non_mutual_scrolledText.vbar.configure(width=25)
+
         self.non_mutual_scrolledText.grid(row=1,column=0,padx=10,pady=(0,15))
+        # endregion
+
         # endregion 
 
         # region Second Label Frame
         self.second_label_frame = tk.LabelFrame(self.parent_frame)
-        self.second_label_frame.grid(row=0,column=1,padx=15,pady=15)
+        self.second_label_frame.grid(row=0,column=1)
 
         # region Blacklist Adding
         blacklist_add_label = tk.Label(self.second_label_frame,text="Add to BlackList:")
@@ -56,29 +61,22 @@ class AutoUnfollowWindow:
 
         # region Third Label Frame
         self.third_label_frame = tk.LabelFrame(self.parent_frame)
-        self.third_label_frame.grid(row=1,column=1,padx=15,pady=15)
-
-        # region Auto Unfollow Image
-        self.auto_unfollow_img = Image.open(paths.auto_unfollow_png_path).resize((200,200))
-        self.auto_unfollow_img = ImageTk.PhotoImage(self.auto_unfollow_img)
-
-        auto_unfollow_img_label = tk.Label(self.third_label_frame,image=self.auto_unfollow_img)
-        auto_unfollow_img_label.grid(row=0,column=0,columnspan=2)
-        # endregion
+        self.third_label_frame.grid(row=1,column=1)
 
         # region Speed & Start Unfollow Process
-        speed_to_unfollow_label = tk.Label(self.third_label_frame,text="Speed:")
-        speed_to_unfollow_label.grid(row=1,column=0,pady=(15,0),sticky="e")
-
-        self.speed_to_unfollow_scale = tk.Scale(self.third_label_frame,orient="horizontal",from_=1,to=10,length=100)
+        self.speed_to_unfollow_scale = tk.Scale(self.third_label_frame,orient="horizontal",from_=1,to=10,length=395,width=30)
         self.speed_to_unfollow_scale.set(value=5)
-        self.speed_to_unfollow_scale.grid(row=1,column=1)
+        self.speed_to_unfollow_scale.grid(row=0,column=0,padx=5,pady=5)
 
-        start_unfollow_process_button = tk.Button(self.third_label_frame,text="Start Unfollow!",command=self.start_unfollow_process)
-        start_unfollow_process_button.grid(row=2,column=0,columnspan=2,padx=5,pady=5,sticky="nsew")
+        start_unfollow_process_button = tk.Button(self.third_label_frame,text="Start Unfollow!",command=self.start_unfollow_process,width=55,height=10,bg="lightgrey")
+        start_unfollow_process_button.grid(row=1,column=0,padx=5,pady=10)
         # endregion
 
         # endregion
+
+        for widget in self.parent_frame.winfo_children():
+            widget.grid_configure(padx=10,pady=10)
+            widget.configure(border=False,highlightthickness=5,highlightbackground="white")
 
     def run_unfollow_process(self):
         unfollow_bot.UnfollowBot(self.speed_to_unfollow_scale.get()).start_unfollow_bot()

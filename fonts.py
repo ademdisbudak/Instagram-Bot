@@ -4,8 +4,9 @@ import tkinter as tk
 
 
 # ---------------------------------------------------------------------
-def get_very_big_stencil_font(root):
-    return font.Font(root,family="Stencil",size=40,weight="bold")
+def get_stencil_font(root,size):
+    return font.Font(root,family="Stencil",size=size,weight="bold")
+
 # ---------------------------------------------------------------------
 
 
