@@ -69,8 +69,8 @@ class FollowAndFollowerList:
             (conn,cursor) = self.create_accounts_db()
             cursor.execute("SELECT username FROM Accounts_Data")
             self.login_username = cursor.fetchone()[0]
-        except:
-            print("get_username_login_account yüklenirken hata oluştu!")
+        except Exception as e:
+            print("Error loading get_username_login_account:",e)
 
     # 1 - Başlangıçta profile girip takipçi ve takip sayılarını çekmek (Döngü için gerekli bir sayıdır.)
     def get_counts_on_profile_link(self): # Get Followers and Follow-Up Counts On Beggining 
@@ -86,9 +86,9 @@ class FollowAndFollowerList:
                 try:
                     browser.add_cookie(cookie)
                 except:
-                    print("Cookieler yüklenemedi!")
+                    print("add cookie")
         except:
-            print("load_cookies_pilot_account yüklenirken hata oluştu!")
+            print("cookies")
         # endregion
 
         # region 2 - Profile gidip sayıları veritabanına yazdırma
@@ -118,24 +118,24 @@ class FollowAndFollowerList:
             if self.delete_follower_list == True:
                 # Followers tablosu accounts_informations.py başlangıcında accounts_informations.db veritabanında oluşturulmuştur.
                 cursor.execute("DELETE FROM Followers")
-                print("Followers tablosu temizlendi.")
+                print("Followers table is cleared.")
             else:
-                print("Followers tablosu yaptığınız seçim sebebiyle temizlenmedi.")
+                print("The Followers table was not cleared because of your selection.")
             conn.commit()
         except Exception as e:
-            print(e,"Followers tablosu temizlenirken sorun oluştu!")
+            print("There is a problem with clearing the followers table:",e)
 
         # 2 - Takip listesi seçime göre silinecek / silinmeyecek.
         try:
             # Follows tablosu accounts_informations.py başlangıcında accounts_informations.db veritabanında oluşturulmuştur.
             if self.delete_followup_list == True:
                 cursor.execute("DELETE FROM Follows")
-                print("Follows tablosu temizlendi.")
+                print("Follows table is cleared.")
             else:
-                print("Follows tablosu yaptığınız seçim sebebiyle temizlenmedi.")
+                print("The Follows table was not cleared because of your selection.")
             conn.commit()
         except Exception as e:
-            print(e,"Follows tablosu oluşturulurup temizlenirken hata oluştu!")
+            print("There is a problem with clearing the follows table:",e)
 
     # 3 - Takipçi Listesini Oluşturmak ve Doldurmak
     def create_follower_list(self):
@@ -152,10 +152,10 @@ class FollowAndFollowerList:
                     cookie['domain'] = ".instagram.com"
                     try:
                         browser.add_cookie(cookie)
-                    except:
-                        print("Cookieler yüklenemedi!")
-            except:
-                print("load_cookies_pilot_account yüklenirken hata oluştu!")
+                    except Exception as e:
+                        print("add cookie",e)
+            except Exception as e:
+                print("cookies",e)
             # endregion
 
             # region 2 - ScrollDown Functions
@@ -180,15 +180,15 @@ class FollowAndFollowerList:
 
                     if len(follower_count_check_list) >= self.last_followers and len(set(follower_count_check_list[-self.last_followers:])) == 1 :
                         followers_list_stop_scrolling = True
-                        print("İlk döngüde takipçi listesinin sonuna ulaşıldı. Scroll işlemi durduruldu, tablo oluşturulup veriler yazılacak.")
+                        print("In the first loop, the end of the follower list was reached. Scroll operation is stopped, table will be created and data will be written.")
                     else:
                         follower_count_check_list.append(real_followers)
                         scroll_time = random.uniform(self.scroll_min_time,self.scroll_max_time)
-                        print(f"{real_followers} takipçi açıldı, scroll devam ediyor. {scroll_time} saniye sonra scroll yapılacak.")
+                        print(f"{real_followers} followers opened, scroll process is continue. After {scroll_time} seconds the scroll will resume.")
                         time.sleep(scroll_time) # Kaç saniyede bir scroll yapılsın ?
 
             except Exception as e:
-                print(e,"Takipçi listesinin scrolldown aşamasında sıkıntı oluştu!")
+                print("There was a problem in the scrolldown phase of the follower list:",e)
             # endregion
 
             # region 2 - Saving all Followers Usernames
@@ -204,16 +204,16 @@ class FollowAndFollowerList:
                     if not result:
                         followers_list.append((followers_username,))
                         line = "-" * (50 - len(followers_username))
-                        print(f"{i}. {followers_username} takipçi listende yoktu ve kaydedildi. {line}")
+                        print(f"{i}. {followers_username} was not on your follower list and was saved. {line}")
                     else:
-                        print(f"{i}. {followers_username} zaten takipçi listesinde kayıtlı.")
+                        print(f"{i}. {followers_username} is already registered in the follower list.")
                 time.sleep(random.uniform(2,4))
 
                 cursor.executemany("INSERT INTO Followers (username) VALUES (?)",followers_list) 
                 conn.commit()
-                print("Takipçi listesinin taraması yapıldı ve takipçiler veri tabanına kaydı yapıldı.")
+                print("The follower list was scanned and the followers were registered in the database.")
             except Exception as e:
-                print(e,"Takipçi listesini kaydederken sorun oluştu!")
+                print("Problem saving follower list:",e)
             time.sleep(random.uniform(3,5))
             # endregion
             
@@ -226,10 +226,10 @@ class FollowAndFollowerList:
                 follower_count_FDB = result[0]
 
                 if int(follower_count_FP)-self.margin_of_error >= int(follower_count_FDB):
-                    print(f"Profilden alınan takip sayısı {follower_count_FP}, veri tabanından alınan takip sayısı {follower_count_FDB}'dır. Veri tabanı henüz dolmadığı için tarama tekrar yapılacaktır.(Hata payı:{self.margin_of_error})")
+                    print(f"Number of follow-ups received from the profile is {follower_count_FP} and number of follow-ups taken from the database is{follower_count_FDB}. As the database is not yet full, the search will be carried out .Margin of error is {self.margin_of_error}.")
                     FirstScan()
                 else:
-                    print(f"Profilden alınan takipçi sayısı {follower_count_FP}, veri tabanından alınan takipçi sayısı {follower_count_FDB}'dır. Veritabanı doldurulduğu için tarama durmuştur.")
+                    print(f"Number of follow-ups received from the profile is {follower_count_FP} and number of follow-ups taken from the database is{follower_count_FDB}. Scanning has stopped because the database is full.")
                     browser.quit()
                     break
             time.sleep(random.uniform(3,5))
@@ -252,9 +252,9 @@ class FollowAndFollowerList:
                     try:
                         browser.add_cookie(cookie)
                     except:
-                        print("Cookieler yüklenemedi!")
+                        print("add cookie create_followup_list")
             except:
-                print("load_cookies_pilot_account yüklenirken hata oluştu!")
+                print("cookies create_followup_list")
             # endregion
             
             # region 2 - ScrollDown Functions
@@ -274,15 +274,15 @@ class FollowAndFollowerList:
 
                     if len(followUp_count_check_list) >= self.last_followers and len(set(followUp_count_check_list[-self.last_followers:])) == 1 :
                         followup_list_stop_scrolling = True
-                        print("İlk döngüde takip listesinin sonuna ulaşıldı. Scroll işlemi durduruldu, tablo oluşturulup veriler yazılacak.")
+                        print("In the first loop, the end of the follow list was reached. Scroll operation is stopped, table will be created and data will be written.")
                     else:
                         followUp_count_check_list.append(followup_count_FHTML)
                         scroll_time = random.uniform(self.scroll_min_time,self.scroll_max_time)
-                        print(f"{followup_count_FHTML} takip edilen açıldı, scroll devam ediyor.{scroll_time} saniye sonra scroll yapılacak.")
+                        print(f"{followup_count_FHTML} opened followed, scroll process is continue.After {scroll_time} seconds, scroll will be resume.")
                         time.sleep(scroll_time) # Kaç saniyede bir scroll yapılsın ?
 
             except Exception as e:
-                print(e,"Takip listesinin scrolldown aşamasında sıkıntı oluştu!")
+                print("There was a problem in the scrolldown phase of the follow-up list:",e)
             # endregion
 
             # region 3 - Saving All Follow-up Usernames
@@ -299,16 +299,16 @@ class FollowAndFollowerList:
                     if not result:
                         followUps_list.append((followup_username,))
                         line = "-" * (50 - len(followup_username))
-                        print(f"{i}. {followup_username} takip listende yoktu ve kaydedildi. {line}")
+                        print(f"{i}. {followup_username} wasn't on your follow list and was saved. {line}")
                     else:
-                        print(f"{i}. {followup_username} zaten takip listende kayıtlı.")
+                        print(f"{i}. {followup_username} is already on your follow list.")
                 time.sleep(random.uniform(2,4))
 
                 cursor.executemany("INSERT INTO Follows (username) VALUES (?)",followUps_list)
                 conn.commit()
-                print(f"Takip listesinin taraması yapıldı ve takiplerin veritabanına kaydı yapıldı.")
+                print(f"The follow-up list was scanned and the follow-ups were saved in the database.")
             except Exception as e:
-                print(e,"Takip listesini kaydedişte bir sıkıntı oluştu!")
+                print("There was a problem saving the follow-up list:",e)
             # endregion
             
             time.sleep(random.uniform(3,5))
@@ -321,10 +321,10 @@ class FollowAndFollowerList:
                 followUp_count_FDB = int(cursor.fetchone()[0])
 
                 if int(followup_count_FP)- int(self.margin_of_error)>= int(followUp_count_FDB):
-                    print(f"Profilden alınan takip sayısı {followup_count_FP}, veri tabanından alınan takip sayısı {followUp_count_FDB}'dır. Veri tabanı henüz dolmadığı için tarama tekrar yapılacaktır.(Hata payı:{self.margin_of_error})")
+                    print(f"Number of follow-ups received from the profile is {followup_count_FP} and number of follow-ups taken from the database is{followUp_count_FDB}. As the database is not yet full, the search will be carried out again.Margin of error is {self.margin_of_error}.")
                     FirstScan()
                 else:
-                    print(f"Profilden alınan takip sayısı {followup_count_FP}, veri tabanından alınan takip sayısı {followUp_count_FDB}'dır. Veritabanı doldurulduğu için tarama durmuştur.")
+                    print(f"Number of follow-ups received from the profile is {followup_count_FP} and number of follow-ups taken from the database is{followUp_count_FDB}. Scanning has stopped because the database is full.")
                     browser.quit()
                     break
             time.sleep(random.uniform(3,5))
@@ -337,28 +337,22 @@ class FollowAndFollowerList:
             # region t1 
             t1 = threading.Thread(target=self.get_username_login_account)
 
-            print("t1 başladı.")
             t1.start()
             t1.join()
-            print("t1 bitti.")
             # endregion
 
             # region t2 
             t2 = threading.Thread(target=self.get_counts_on_profile_link)
 
-            print("t2 başladı.")
             t2.start()
             t2.join()
-            print("t2 bitti.")
             # endregion
 
             # region t3 
             t3 = threading.Thread(target=self.clear_list)
 
-            print("t3 başladı.")
             t3.start()
             t3.join()
-            print("t3 bitti.")
             # endregion
 
             t4 = threading.Thread(target=self.create_follower_list)
@@ -376,7 +370,7 @@ class FollowAndFollowerList:
                 t5.start()
                 t5.join()
             elif (self.scrap_follower_list == False) and (self.scrap_followup_list==False):
-                print("Takip ve takipçi listelerinden herhangi biri seçilmediği için tarama yapılamıyor.")
+                print("Scanning cannot be performed because any of the follow-up and follower lists are not selected.")
         
         finally:
             # self.conn_accounts_db.close()

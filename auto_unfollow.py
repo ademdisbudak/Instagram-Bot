@@ -122,7 +122,7 @@ class AutoUnfollowWindow:
                         self.non_mutual_scrolledText.insert(tk.END,f"{number}. {username}\n")
                 self.first_label_frame.after(20000,update_non_mutual_scrolledText)
             except Exception as e:
-                print("Non-mutualler yüklenirken bir sorun oluştu.",e)
+                print("There was a problem loading the non-mutuals:",e)
         
         self.first_label_frame.after(0,update_non_mutual_scrolledText)
 

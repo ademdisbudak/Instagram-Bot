@@ -195,8 +195,8 @@ class AutoFollowWindow:
                     else:  # Son satırsa
                         file.write(proxy)
         except Exception as e:
-            print("proxy_list.txt yazılırken bir hata oldu:",e)  
-        print("proxy_list başarıyla düzenlendi.")
+            print("proxy_list.txt write:",e)  
+        print("proxie_list have been organised.")
     
     def save_entry_to_database(self): # Kullanıcı tarafından girilen entry veritabanına kaydedilir.
         # Kullanıcı tarafından girilen kullanıcı adını alır.
@@ -225,9 +225,9 @@ class AutoFollowWindow:
                 try:
                     browser.add_cookie(cookie)
                 except Exception as e:
-                    print("Cookieler yüklenemedi: ",e)
+                    print("cookie add",e)
         except Exception as e:
-            print("load_cookies yüklenirken sorun oluştu: ",e)
+            print("cookies",e)
         # endregion
 
         # region Hedef Hesap Durumunu Kontrol Etme Bölgesi
@@ -237,10 +237,10 @@ class AutoFollowWindow:
         browser.get(f"https://www.instagram.com/{username}")
         try:
             secret_or_open_account = WebDriverWait(browser,10).until(EC.presence_of_element_located((By.XPATH,paths.secret_or_open_account_xPath)))
-            print("Hesap gizli hesap olduğu için takip edilmeye uygun değildir.")
+            print("Account is not available for follow.")
             self.account_is_available = False
         except:
-            print("Hesap takip edilmeye uygundur.")
+            print("Account is available for follow.")
             self.account_is_available = True
         # endregion
 
@@ -255,7 +255,7 @@ class AutoFollowWindow:
                         try:
                             browser.find_element(By.TAG_NAME,"article").find_element(By.XPATH,f"div[1]/div/div[{a}]/div[{b}]").click() # Can be Wrong xPath
                         except Exception as e:
-                            print("Posta tıklanırken bir hata oluştu:",e)
+                            print("Error when clicking on the post:",e)
                         # endregion
 
                         # region Beğenenlere Tıklama
@@ -264,7 +264,7 @@ class AutoFollowWindow:
                             like_button.click()
                             self.detected_available_post_count += 1
                         except:
-                            print("Post sorunlu çıktı.")
+                            print("Post is not available for follow process.")
                             continue
                         # endregion
 
@@ -310,12 +310,12 @@ class AutoFollowWindow:
                 cursor.execute("SELECT COUNT(*) FROM Temporary_Follow_Count")
                 self.detected_temporary_follow_count = cursor.fetchone()[0]
 
-                print(f"{user_nick_control.text} kullanıcısı takip edildi. Toplam takip sayısı: {self.detected_temporary_follow_count}, başlangıçtan beri:{self.detected_permanent_follow_count}, bekleme süresi:{follow_random_time}")
+                print(f"{user_nick_control.text} is followed. Total amount of follow-up: {self.detected_temporary_follow_count}, from beginning:{self.detected_permanent_follow_count}, waiting time:{follow_random_time}")
                 
                 # Yukarıda belirlenen rastgele süre kadar beklemek
                 time.sleep(follow_random_time)
             else:
-                print(f"{user_nick_control.text} kullanıcı zaten takip edilmiş.")
+                print(f"{user_nick_control.text} is already followed.")
         
         # Tab tuşuna bastıran fonksiyon
         def tab_funct(i):
@@ -334,9 +334,9 @@ class AutoFollowWindow:
                 try:
                     browser.add_cookie(cookie)
                 except Exception as e:
-                    print("Cookieler yüklenemedi: ",e)
+                    print("add cookie",e)
         except Exception as e:
-            print("load_cookies yüklenirken sorun oluştu: ",e)
+            print("cookies",e)
         # endregion
         
         # region Girilen Entry Bilgisini Veritabanından Çekme Bölgesi
@@ -362,7 +362,7 @@ class AutoFollowWindow:
                 try:
                     browser.find_element(By.TAG_NAME,"article").find_element(By.XPATH,f"div[1]/div/div[{a}]/div[{b}]").click() # Can be Wrong xPath
                 except Exception as e:
-                    print("Posta tıklanırken bir hata oluştu:",e)
+                    print("Error when clicking on the post:",e)
                     continue
                 # endregion
 
@@ -372,7 +372,7 @@ class AutoFollowWindow:
                     like_button.click()
                     time.sleep(3)
                 except:
-                    print("Post sorunlu çıktı ve atlandı.")
+                    print("Post is not available for follow.")
                     continue
                 # endregion
 
@@ -395,7 +395,7 @@ class AutoFollowWindow:
                         tab_funct(3)
                 
                 except Exception as e:
-                    print("Takip işlemleri sırasında bir sorun oluştu:",e)
+                    print("There was a problem during the follow process",e)
                 # endregion
 
                 # region Close Post
@@ -418,33 +418,24 @@ class AutoFollowWindow:
 
 
         if self.rearranging_proxy_list_checkbutton_Boolean_Var.get() == True:
-            print("Proxy listesi olan proxy_list.txt açılıp teker teker deneniyor.(t1)")
             t1.start()
             t1.join()
-            print("Yeni proxy'ler yazdırılmıştır.(t1)")
 
         if self.delete_permanent_follow_list_checkbutton_Boolean_Var.get() == True:
-            print("Permanent_Follow_Count tablosu temizleniyor.")
             t2.start()
             t2.join()
-            print("Permanent_Follow_Count tablosu temizlendi.")
 
-        print("Username bilgisi entry alanından alınıp veritabanına yazılıyor.(t2)")
         t3.start()
         t3.join()
-        print("Username bilgisi veritabanına yazdırıldı.(t2)")
 
-        print("Cookie'ler yüklenip hesap durumu kontrol ediliyor. Eğer hesap uygunsa postlar seçilecek.(t3)")
         t4.start()
         t4.join()
-        print("Hesap durumu kontrolü ve post seçim işlemi bitmiştir.(t3)")
 
         t5 = threading.Thread(target=self.following_process)
         
-        print("Takip etme işlemi başlamıştır.")
         t5.start()
         t5.join()
-        print("Takip etme işlemi sonlanmıştır.")
+
 
     def update_from_beginning(self): # Sadece başta ve sürekli tekrarlanan update'ler gerçekleşir.
 
@@ -464,7 +455,7 @@ class AutoFollowWindow:
             try:
                 self.available_post_count.config(text=self.detected_available_post_count)
             except Exception as e:
-                print("Available Post Count label'i güncellenirken bir hata oluştu:",e)
+                print("update_available_post_count",e)
             self.second_label_frame.after(3000,update_available_post_count)
         
         self.second_label_frame.after(0,update_available_post_count)
@@ -475,7 +466,7 @@ class AutoFollowWindow:
                     proxy_count = sum(1 for line in file)
                     self.proxy_list_member_count.config(text=proxy_count)
             except Exception as e:
-                print("Proxy sayısı alınırken hata oluştu:",e)
+                print("update_proxy_list_member_count",e)
             self.second_label_frame.after(2000,update_proxy_list_member_count)
                 
         self.second_label_frame.after(0,update_proxy_list_member_count)

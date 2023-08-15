@@ -13,7 +13,6 @@ class UnfollowBot():
         self.scroll_repeat_count = int(2 * speed) 
         self.unfollow_min_time = int(225 / speed) # Ciddi: 225 - 45 sn - 5. Kademe
         self.unfollow_max_time = int(300 / speed) # Ciddi: 300 - 60 sn - 5. Kademe
-        print(self.unfollow_min_time,self.unfollow_max_time)
         self.scroll_min_time = 0 
         scroll_max_time_list = [4,4,4,4,3,3,3,2,2,1,1] 
         self.scroll_max_time = scroll_max_time_list[speed-1] 
@@ -77,9 +76,9 @@ class UnfollowBot():
                 try:
                     self.browser.add_cookie(cookie)
                 except:
-                    print("Cookie'ler yüklenirken sorun oluştu! (1)")
+                    print("add cookie load_cookies")
         except Exception as e:
-            print("Cookie'ler yüklenirken sorun oluştu! (2)")
+            print("cookies load_cookies")
 
     def get_username_from_database(self):
         (conn,cursor) = self.create_login_db()
@@ -108,13 +107,13 @@ class UnfollowBot():
                 follow_count = len(self.browser.find_elements(By.XPATH, paths.follow_count_from_html_xPath))
                 if len(follow_count_check_list) >= self.scroll_repeat_count and len(set(follow_count_check_list[-self.scroll_repeat_count:])) == 1: # GK
                     stop_scrolling = True
-                    print("Takip listesi sona ulaştı. Scroll işlemi bitirildi.")
+                    print("Following list has reached the end. Scroll operation is finished.")
                 else:
                     follow_count_check_list.append(follow_count)
-                    print(f"{follow_count}. takip edilendesiniz. Scroll işlemine devam ediliyor..")
+                    print(f"You are on {follow_count}. followings. Scroll process is resume.")
                 time.sleep(random.uniform(self.scroll_min_time,self.scroll_max_time))
         except Exception as e:
-            print(e,"Scroll işlemi sırasında bir hata oluştu!")
+            print("An error occurred during the scroll operation:",e)
         # endregion
 
         # region 4 - Takip'ten çıkma işlemini gerçekleştirme
@@ -130,8 +129,7 @@ class UnfollowBot():
                 if not is_in_blacklist:
                     cursor_account_informations.execute("SELECT * FROM Non_Mutual_Followers WHERE username=?",(follow_username,))
                     is_non_mutual = cursor_account_informations.fetchone()
-                    if is_non_mutual:
-                        print(f"{follow_username} için takipten çıkma butonuna basıldı.")                     
+                    if is_non_mutual:                   
                         self.browser.find_element(By.CSS_SELECTOR,paths.create_unfollow_button_first_stage_css(i)).click() # Takipten çıkma butonuna basıldı.
                         # Takipten çıkma butonu ikinci basamak
                         self.browser.find_element(By.CSS_SELECTOR,paths.unfollow_button_second_stage_css_selector).click() 
@@ -139,7 +137,7 @@ class UnfollowBot():
                         # Takipten çıkılan kişiyi terminale yazdırma
                         line = "-" * (50-len(follow_username))
                         random_time = random.uniform(self.unfollow_min_time,self.unfollow_max_time)
-                        print(f"{i}. {follow_username} kullanıcısı non mutual olduğu için takipten çıkıldı.Bir sonraki işlem {random_time} saniye sonradır.{line}")
+                        print(f"{i}. {follow_username} has been unfollowed. The next operation is {random_time} seconds later..{line}")
                         time.sleep(random_time)
 
                         try:
@@ -147,13 +145,13 @@ class UnfollowBot():
                             cursor_account_informations.execute("DELETE FROM Non_Mutual_Followers WHERE username = ?",(follow_username,))
                             conn_account_informations_db.commit()
                         except Exception as e:
-                            print("Kayıtlar silinemedi:",e)
+                            print("Could not be deleted from the database:",e)
                     else:
-                        print(f"{i}. {follow_username} kullanıcısı mutual kullanıcıdır.")
+                        print(f"{i}. {follow_username} user is a mutual user.")
                 else:
-                    print(f"{i}. {follow_username} karalistede olduğu için takipten çıkılmadı.")
+                    print(f"{i}. {follow_username}'s on the blacklist, so no unfollowed.")
             except Exception as e:
-                print("Bir hata oldu:",e)
+                print("unfollow process:",e)
         # endregion
 
     def next_unfollow_process(self):
@@ -175,10 +173,10 @@ class UnfollowBot():
         stop_processing = False
         while not stop_processing:
             if int(rest_of_nmutual_count) - int(black_list_count) != 0: # Eğer kalan non-mutual listesi elemanı 0 değilse first_unfollow_process işleminin tekrar yapılmasını sağlar.
-                print(f"Kalan non mutual sayısı {rest_of_nmutual_count} olduğu için işlem tekrarlanıyor.")
+                print(f"Since the number of remaining non-mutuals is {rest_of_nmutual_count}, the process will be repeated.")
                 self.first_unfollow_process()
             else:
-                print("Non-mutual takipçi kalmadığı için işlem sona ermiştir.")
+                print("The transaction was terminated as there were no more non-reciprocal followers.")
                 stop_processing = True
         # endregion
 

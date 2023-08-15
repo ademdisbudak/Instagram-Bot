@@ -209,7 +209,7 @@ class AccountsInformationsWindow():
             cursor.execute("SELECT username FROM Accounts_Data")
             self.username_login_account = cursor.fetchone()[0]
         except Exception as e:
-            print("accounts.db'ye başlanırken sorun oluştu: ",e)
+            print("get_login_account_username",e)
 
     def get_profile_photo(self): # Profilden fotoğrafın alınması
         browser = self.create_browser()
@@ -221,10 +221,10 @@ class AccountsInformationsWindow():
                 cookie['domain'] = ".instagram.com"
                 try:
                     browser.add_cookie(cookie)
-                except:
-                    print("Cookieler yüklenemedi!")
+                except Exception as e:
+                    print("cookies add",e)
         except Exception as e:
-            print(e,"LoadLoginAccountCookies")
+            print("cookies",e)
         
         try: # Profil fotoğrafını dosyaya yükleme
             browser.get(f"https://www.instagram.com/{self.username_login_account}")
@@ -234,7 +234,7 @@ class AccountsInformationsWindow():
             element.screenshot(paths.profile_photo_png_path)
             browser.quit()
         except Exception as e:
-            print("Ekran fotoğrafı çekilirken bir sorun oluştu: ",e)
+            print("screenshot",e)
             
     def show_profile_photo(self): # Profil fotoğrafının programa yansıtılması
         image = Image.open(paths.profile_photo_png_path).resize((200,200))
@@ -274,38 +274,26 @@ class AccountsInformationsWindow():
 
         # region t1
         t1 = threading.Thread(target=self.get_login_account_username)
-
-        print("Login hesabının kullanıcı adı veri tabanından alıyor.")
         t1.start()
         t1.join()
-        print("Login hesabının kullanıcı adı veritabanından başarıyla alındı.")
         # endregion
 
         # region t2
         t2 = threading.Thread(target=self.get_profile_photo)
-
-        print("Profil fotoğrafı alınacak.")
         t2.start()
         t2.join()
-        print("Profil fotoğrafı alındı.")
         # endregion
         
         # region t3
         t3 = threading.Thread(target=self.show_profile_photo)
-
-        print("Profil fotoğrafı pencereye alınıyor.")
         t3.start()
         t3.join()
-        print("Profil fotoğrafı pencerede gösterildi.")
         # endregion
 
         # region t4
         t4 = threading.Thread(target=self.scrap_process)
-
-        print("Takip ve takipçi sayıları alınacak.")
         t4.start()
         t4.join()
-        print("Takip ve takipçi sayıları alındı.")
         # endregion
 
 
@@ -372,7 +360,7 @@ class AccountsInformationsWindow():
                 # Login butonuna basıldıktan sonra 5-10 saniye arası bekleme (giriş süresi)
                 time.sleep(random.uniform(5,10)) # düzeltilmeli - sayfa 5-10 saniyede yüklenmezse sorun olur o yüzden sayfanın yüklenme anına kadar bekletmen lazım.
             except Exception as e:
-                print("Giriş yapılırken bir sorun oluştu:",e)
+                print("save_pilot_account_cookies first try",e)
 
             try: # Cookie'leri yükleme
 
@@ -384,7 +372,7 @@ class AccountsInformationsWindow():
                 self.pilot_account_login_page.destroy()
                 # düzeltilmeli - Giriş yapmadığı zaman uyarı vermiyor, ayarlamadım zaman yok.
             except Exception as e:
-                print("Çerezler kaydedilirken bir sorun oluştu:",e)
+                print("save_pilot_account_cookies second try",e)
 
         def start_login(): # Ana thread
             threading.Thread(target=run_login).start()
@@ -392,17 +380,16 @@ class AccountsInformationsWindow():
         def run_login(): # İş parçacıklarını teker teker çalıştırma
             t1 = threading.Thread(target=entry_to_database)
 
-            print("Bilgiler entry'den alınıp veritabanına yazılıyor.")
             t1.start()
             t1.join()
-            print("Bilgiler veritabanına yazdırıldı.")
+
 
             t2 = threading.Thread(target=save_pilot_account_cookies)
 
-            print("Çerezler kaydedilecek.")
+
             t2.start()
             t2.join()
-            print("Çerezler kaydedildi.")
+
 
         def update_from_beginning_for_login_page(): # pilot_account_login_page için update fonksiyonu
 
@@ -426,7 +413,7 @@ class AccountsInformationsWindow():
                         self.username_entry.insert(0,username_from_database)
                         self.password_entry.insert(0,password_from_database)
                 except Exception as e:
-                    print("Önceki username ve password alınırken sorun yaşandı:",e)
+                    print("fill_username_and_password",e)
             
             self.pilot_account_login_page_first_label_frame.after(0,fill_username_and_password)
 
