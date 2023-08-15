@@ -29,12 +29,12 @@ class MainWindow:
         self.menu_frame = tk.Frame(self.main_window)
         self.menu_frame.pack(side="left",fill="y")
 
-        self.menu_label = tk.Label(self.menu_frame, text="Menu",font="bold 30")
+        self.menu_label = tk.Label(self.menu_frame, text="Menu",font=fonts.get_big_bahnschrift_font(self.main_window))
         self.menu_label.grid(row=0, column=0, pady=10)
 
         self.menu_items = {
             "Main": self.open_welcome_window,
-            "General": self.open_accounts_informations_window,
+            "Counts & Lists": self.open_accounts_informations_window,
             "Auto Follow": self.open_auto_follow_window,
             "Auto Unfollow": self.open_auto_unfollow_window,
             "Auto Like": self.open_auto_like_window,
@@ -42,7 +42,7 @@ class MainWindow:
 
         row_num = 1
         for item in self.menu_items:
-            button = tk.Button(self.menu_frame, text=item, command=self.menu_items[item], width=20)
+            button = tk.Button(self.menu_frame, text=item, command=self.menu_items[item], width=20,font=fonts.get_medium_bahnschrift_font(self.main_window))
             button.grid(row=row_num, column=0, padx=10, pady=5)
             row_num += 1
     

@@ -18,12 +18,11 @@ def get_small_calibri_font(root):
     return font.Font(root, family="Calibri",size=10, weight="normal")
 # ---------------------------------------------------------------------
 
-# ---------------------------------------------------------------------
-def get_big_rockwell_font(root):
-    return font.Font(root,family="Rockwell",size=25,weight="bold")
+def get_big_bahnschrift_font(root):
+    return font.Font(root,family="Bahnschrift SemiBold",size=24,weight="bold")
 
-def get_medium_rockwell_font(root):
-    return font.Font(root,family="Rockwell",size=12,weight="bold")
+def get_medium_bahnschrift_font(root):
+    return font.Font(root,family="Bahnschrift SemiBold",size=12,weight="normal")
 
 
 

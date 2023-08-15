@@ -138,19 +138,20 @@ class UnfollowBot():
 
                         # Takipten çıkılan kişiyi terminale yazdırma
                         line = "-" * (50-len(follow_username))
-                        print(f"{i}. {follow_username} kullanıcısı non mutual olduğu için takipten çıkıldı.{line}")
-                        time.sleep(random.uniform(self.unfollow_min_time,self.unfollow_max_time))
+                        random_time = random.uniform(self.unfollow_min_time,self.unfollow_max_time)
+                        print(f"{i}. {follow_username} kullanıcısı non mutual olduğu için takipten çıkıldı.Bir sonraki işlem {random_time} saniye sonradır.{line}")
+                        time.sleep(random_time)
 
-                        # Takipten çıkılan kişiyi takip listesinden silme aşaması
-                        cursor_account_informations.execute("DELETE FROM Follows_Usernames WHERE username = ?",(follow_username,))
-                        cursor_account_informations.execute("DELETE FROM Non_Mutual_Followers WHERE username = ?",(follow_username,))
-                        conn_account_informations_db.commit()
+                        try:
+                            cursor_account_informations.execute("DELETE FROM Follows WHERE username = ?",(follow_username,))
+                            cursor_account_informations.execute("DELETE FROM Non_Mutual_Followers WHERE username = ?",(follow_username,))
+                            conn_account_informations_db.commit()
+                        except Exception as e:
+                            print("Kayıtlar silinemedi:",e)
                     else:
                         print(f"{i}. {follow_username} kullanıcısı mutual kullanıcıdır.")
                 else:
                     print(f"{i}. {follow_username} karalistede olduğu için takipten çıkılmadı.")
-                
-                
             except Exception as e:
                 print("Bir hata oldu:",e)
         # endregion
@@ -205,6 +206,3 @@ class UnfollowBot():
         t5 = threading.Thread(target=self.next_unfollow_process)
         t5.start()
         t5.join()
-if __name__ == "__main__":
-    UnfollowBot(5).start_unfollow_bot()
-

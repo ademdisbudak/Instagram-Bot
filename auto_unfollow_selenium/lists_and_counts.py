@@ -167,25 +167,26 @@ class FollowAndFollowerList:
                 followers_list_stop_scrolling = False
                 follower_count_check_list = []
 
+                # Eğer "Senin için Önerilenler" kısmı varsa yazandan 30 takipçi az yüklenmiş demektir. Yoksa aynı şekilde devam edilir.
+                try:
+                    browser.find_element(By.CSS_SELECTOR,".xw7yly9 > span:nth-child(1)")
+                    real_followers = follower_count_FHTML - 30
+                except:
+                    real_followers = follower_count_FHTML
+
                 while not followers_list_stop_scrolling:
                     browser.execute_script("arguments[0].scrollTop += 1000;", followers_dialog_window) 
                     follower_count_FHTML = len(browser.find_elements(By.XPATH,paths.follow_and_follower_count_from_html_xpath))
 
-                    # Eğer "Senin için Önerilenler" kısmı varsa yazandan 30 takipçi az yüklenmiş demektir. Yoksa aynı şekilde devam edilir.
-                    try:
-                        browser.find_element(By.CSS_SELECTOR,".xw7yly9 > span:nth-child(1)")
-                        real_followers = follower_count_FHTML - 30
-                    except:
-                        real_followers = follower_count_FHTML
-                    
                     if len(follower_count_check_list) >= self.last_followers and len(set(follower_count_check_list[-self.last_followers:])) == 1 :
                         followers_list_stop_scrolling = True
                         print("İlk döngüde takipçi listesinin sonuna ulaşıldı. Scroll işlemi durduruldu, tablo oluşturulup veriler yazılacak.")
                     else:
-                        print(f"{real_followers} takipçi açıldı, scroll devam ediyor.")
                         follower_count_check_list.append(real_followers)
+                        scroll_time = random.uniform(self.scroll_min_time,self.scroll_max_time)
+                        print(f"{real_followers} takipçi açıldı, scroll devam ediyor. {scroll_time} saniye sonra scroll yapılacak.")
+                        time.sleep(scroll_time) # Kaç saniyede bir scroll yapılsın ?
 
-                    time.sleep(random.uniform(self.scroll_min_time,self.scroll_max_time))
             except Exception as e:
                 print(e,"Takipçi listesinin scrolldown aşamasında sıkıntı oluştu!")
             # endregion
@@ -276,9 +277,10 @@ class FollowAndFollowerList:
                         print("İlk döngüde takip listesinin sonuna ulaşıldı. Scroll işlemi durduruldu, tablo oluşturulup veriler yazılacak.")
                     else:
                         followUp_count_check_list.append(followup_count_FHTML)
-                        print(f"{followup_count_FHTML} takip edilen açıldı, scroll devam ediyor.")
+                        scroll_time = random.uniform(self.scroll_min_time,self.scroll_max_time)
+                        print(f"{followup_count_FHTML} takip edilen açıldı, scroll devam ediyor.{scroll_time} saniye sonra scroll yapılacak.")
+                        time.sleep(scroll_time) # Kaç saniyede bir scroll yapılsın ?
 
-                    time.sleep(random.uniform(self.scroll_min_time,self.scroll_max_time)) # Kaç saniyede bir scroll yapılsın ?
             except Exception as e:
                 print(e,"Takip listesinin scrolldown aşamasında sıkıntı oluştu!")
             # endregion

@@ -19,8 +19,8 @@ class AutoFollowWindow:
         self.detected_permanent_follow_count = 0 # Repeater updater için.
         self.detected_temporary_follow_count = 0 # Repeater updater için.
 
-        self.follow_random_time_min = 0 # temporary serious opening- Program ciddi olarak açıldığı zaman 45 olmalı.
-        self.follow_random_time_max = 1 # temporary serious opening - Program ciddi olarak açıldığı zaman 60 olmalı.
+        self.follow_random_time_min = 60 # temporary serious opening- Program ciddi olarak açıldığı zaman 45 olmalı.
+        self.follow_random_time_max = 120 # temporary serious opening - Program ciddi olarak açıldığı zaman 60 olmalı.
         # Yukarıdaki değerler kaç saniyeler aralığında takip yapılacağını gösterir.
     
     def configure_fonts(self,weight):
@@ -65,7 +65,7 @@ class AutoFollowWindow:
 
         # region Available Post Count
         available_post_count_label = tk.Label(self.second_label_frame,text="Available Post Count",font=self.configure_fonts("bold"))
-        available_post_count_label.grid(row=0,column=0,padx=40,pady=(10,5),sticky="nsew")
+        available_post_count_label.grid(row=0,column=0,padx=60,pady=(10,5),sticky="nsew")
 
         self.available_post_count = tk.Label(self.second_label_frame,font="size 72")
         self.available_post_count.grid(row=1,column=0)
@@ -73,7 +73,7 @@ class AutoFollowWindow:
 
         # region Proxy Count & Rearranging Proxy List CheckBox
         proxy_list_member_count_label = tk.Label(self.second_label_frame,text="Proxy List Member Count",font=self.configure_fonts("bold"))
-        proxy_list_member_count_label.grid(row=0,column=1,padx=40,pady=(10,5),sticky="nsew")
+        proxy_list_member_count_label.grid(row=0,column=1,padx=60,pady=(10,5),sticky="nsew")
 
         self.proxy_list_member_count = tk.Label(self.second_label_frame,font="size 72")
         self.proxy_list_member_count.grid(row=1,column=1)
@@ -126,8 +126,8 @@ class AutoFollowWindow:
 
         option = webdriver.FirefoxOptions()
 
-        # option.add_argument("-profile")
-        # option.add_argument(paths.firefox_proile_path) 
+        option.add_argument("-profile")
+        option.add_argument(paths.firefox_proile_path) 
         option.set_preference("network.proxy.type", 1)
         option.set_preference("network.proxy.http", PROXY_HOST)
         option.set_preference("network.proxy.http_port", PROXY_PORT)
@@ -296,7 +296,7 @@ class AutoFollowWindow:
             follow_random_time = random.uniform(self.follow_random_time_min,self.follow_random_time_max)
 
             if follow_control.text == "Takip Et":
-                # follow_control.click() # temporary serious opening
+                follow_control.click() # temporary serious opening
 
                 # Veritabanına takip sayılarını ekleme ve kaydetme
                 cursor.execute("INSERT INTO Temporary_Follow_Count VALUES ('1')")
@@ -310,7 +310,7 @@ class AutoFollowWindow:
                 cursor.execute("SELECT COUNT(*) FROM Temporary_Follow_Count")
                 self.detected_temporary_follow_count = cursor.fetchone()[0]
 
-                print(f"{user_nick_control.text} kullanıcısı takip edildi. Toplam takip sayısı: {self.detected_temporary_follow_count}, başlangıçtan beri:{self.detected_permanent_follow_count}")
+                print(f"{user_nick_control.text} kullanıcısı takip edildi. Toplam takip sayısı: {self.detected_temporary_follow_count}, başlangıçtan beri:{self.detected_permanent_follow_count}, bekleme süresi:{follow_random_time}")
                 
                 # Yukarıda belirlenen rastgele süre kadar beklemek
                 time.sleep(follow_random_time)
@@ -323,6 +323,7 @@ class AutoFollowWindow:
                 action = ActionChains(browser)
                 action.key_down(Keys.TAB)
                 action.perform()
+                time.sleep(random.uniform(0,2))
                 
         # region Kayıtlı Çerezleri Yükleme Bölgesi
         try:
@@ -491,6 +492,8 @@ class AutoFollowWindow:
             # endregion
 
             # region Temporary Follow Count
+            cursor.execute("DELETE FROM Temporary_Follow_Count")
+            conn.commit()
             self.temporary_follow_count.config(text="0") # Temporary Count her zaman başta sıfır olmalıdır. Veritabanından çekmeye gerek yoktur.
             # endregion 
             

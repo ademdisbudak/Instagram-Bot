@@ -115,12 +115,14 @@ class AutoUnfollowWindow:
         self.refresh_to_blacklist()
 
     def update_from_beginning(self):
+
         def update_non_mutual_scrolledText():
             try:
                 non_mutual_usernames = lists_and_counts.ListMembers().getNonMutualFollowerListMembers()
                 if non_mutual_usernames is not None:
                     for number,username in enumerate(non_mutual_usernames,start=1):
                         self.non_mutual_scrolledText.insert(tk.END,f"{number}. {username}\n")
+                self.first_label_frame.after(20000,update_non_mutual_scrolledText)
             except Exception as e:
                 print("Non-mutualler yüklenirken bir sorun oluştu.",e)
         
