@@ -24,7 +24,7 @@ close_dialog_window_xPath = "/html/body/div[2]/div/div/div[3]/div/div/div[2]/div
 close_post_window_xPath = "/html/body/div[2]/div/div/div[3]/div/div/div[1]/div/div[2]/div"                                                                                              # auto_follow.py
 
 follow_and_follower_dialog_window_css_selector = "._aano"                                                                                                                               # list_and_counts.py
-follow_and_follower_count_from_html_xpath = '//div[contains(@class, "_aano")]//div[1]//div[1]//div[@class="x1dm5mii x16mil14 xiojian x1yutycm x1lliihq x193iq5w xh8yej3"]'              # list_and_counts.py
+follow_and_follower_count_from_html_xpath = '//div[@class="x1dm5mii x16mil14 xiojian x1yutycm x1lliihq x193iq5w xh8yej3"]'                                                              # list_and_counts.py
 accounts_informations_css_selector = "section.x1qjc9v5"                                                                                                                                 # list_and_counts.py
 
 unfollow_button_second_stage_css_selector = "button._a9--:nth-child(2)"                                                                                                                 # unfollow_bot.py

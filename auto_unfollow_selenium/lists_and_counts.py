@@ -167,16 +167,16 @@ class FollowAndFollowerList:
                 followers_list_stop_scrolling = False
                 follower_count_check_list = []
 
-                # Eğer "Senin için Önerilenler" kısmı varsa yazandan 30 takipçi az yüklenmiş demektir. Yoksa aynı şekilde devam edilir.
-                try:
-                    browser.find_element(By.CSS_SELECTOR,".xw7yly9 > span:nth-child(1)")
-                    real_followers = follower_count_FHTML - 30
-                except:
-                    real_followers = follower_count_FHTML
-
                 while not followers_list_stop_scrolling:
-                    browser.execute_script("arguments[0].scrollTop += 1000;", followers_dialog_window) 
                     follower_count_FHTML = len(browser.find_elements(By.XPATH,paths.follow_and_follower_count_from_html_xpath))
+                    # Eğer "Senin için Önerilenler" kısmı varsa yazandan 30 takipçi az yüklenmiş demektir. Yoksa aynı şekilde devam edilir.
+                    try:
+                        browser.find_element(By.CSS_SELECTOR,".xw7yly9 > span:nth-child(1)")
+                        real_followers = follower_count_FHTML - 30
+                    except:
+                        real_followers = follower_count_FHTML
+
+                    browser.execute_script("arguments[0].scrollTop += 1000;", followers_dialog_window) 
 
                     if len(follower_count_check_list) >= self.last_followers and len(set(follower_count_check_list[-self.last_followers:])) == 1 :
                         followers_list_stop_scrolling = True
@@ -226,10 +226,10 @@ class FollowAndFollowerList:
                 follower_count_FDB = result[0]
 
                 if int(follower_count_FP)-self.margin_of_error >= int(follower_count_FDB):
-                    print(f"Number of follow-ups received from the profile is {follower_count_FP} and number of follow-ups taken from the database is{follower_count_FDB}. As the database is not yet full, the search will be carried out .Margin of error is {self.margin_of_error}.")
+                    print(f"Number of follow-ups received from the profile is {follower_count_FP} and number of follow-ups taken from the database is {follower_count_FDB}. As the database is not yet full, the search will be carried out .Margin of error is {self.margin_of_error}.")
                     FirstScan()
                 else:
-                    print(f"Number of follow-ups received from the profile is {follower_count_FP} and number of follow-ups taken from the database is{follower_count_FDB}. Scanning has stopped because the database is full.")
+                    print(f"Number of follow-ups received from the profile is {follower_count_FP} and number of follow-ups taken from the database is {follower_count_FDB}. Scanning has stopped because the database is full.")
                     browser.quit()
                     break
             time.sleep(random.uniform(3,5))
@@ -321,10 +321,10 @@ class FollowAndFollowerList:
                 followUp_count_FDB = int(cursor.fetchone()[0])
 
                 if int(followup_count_FP)- int(self.margin_of_error)>= int(followUp_count_FDB):
-                    print(f"Number of follow-ups received from the profile is {followup_count_FP} and number of follow-ups taken from the database is{followUp_count_FDB}. As the database is not yet full, the search will be carried out again.Margin of error is {self.margin_of_error}.")
+                    print(f"Number of follow-ups received from the profile is {followup_count_FP} and number of follow-ups taken from the database is {followUp_count_FDB}. As the database is not yet full, the search will be carried out again.Margin of error is {self.margin_of_error}.")
                     FirstScan()
                 else:
-                    print(f"Number of follow-ups received from the profile is {followup_count_FP} and number of follow-ups taken from the database is{followUp_count_FDB}. Scanning has stopped because the database is full.")
+                    print(f"Number of follow-ups received from the profile is {followup_count_FP} and number of follow-ups taken from the database is {followUp_count_FDB}. Scanning has stopped because the database is full.")
                     browser.quit()
                     break
             time.sleep(random.uniform(3,5))
