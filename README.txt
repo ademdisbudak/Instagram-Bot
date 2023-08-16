@@ -1,1 +1,3 @@
-Gerekli kütüphanaleri nasıl yükleyeceğim?: pip install -r requirements.txt
+How to install and run this program?
+
+https://www.youtube.com/watch?v=67462gfKGPM&t=49s
